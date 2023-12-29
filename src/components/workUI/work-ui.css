@@ -1,0 +1,24 @@
+@keyframes bgSlide {
+  from {
+    background: inherit;
+  }
+  to {
+    background: #D9D9D9;
+  }
+}
+
+@media (max-width: 810px) {
+  #work-cel {
+    transition: background-color 300ms ease-in;
+  }
+
+  #work-cel:active {
+    background: #75FA4D;
+  }
+}
+
+@media (min-width: 640px) {
+  #work-cel:hover {
+    animation: bgSlide 300ms ease-in;
+  }
+}
