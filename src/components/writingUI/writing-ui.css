@@ -1,22 +1,22 @@
 @media (max-width: 810px) {
-  #work-cel {
+  #writing-cel {
     transition: background-color 300ms ease-in;
   }
 
-  #work-cel:active {
+  #writing-cel:active {
     background: #75FA4D;
   }
 }
 
 @media (min-width: 640px) {
-  #work-cel {
+  #writing-cel {
     background-image: linear-gradient(rgba(217, 217, 217) 0 0);
     background-size: 0 100%;
     background-repeat: no-repeat;
-    transition:  300ms;
+    transition: 300ms;
   }
 
-  #work-cel:hover {
+  #writing-cel:hover {
     background-size: 100% 100%;
   }
 }

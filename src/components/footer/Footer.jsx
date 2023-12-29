@@ -3,7 +3,7 @@ import { bricolageGrotesque } from "@/app/fonts"
 export default function Footer(){
 
   return (
-    <div id="footer" className="flex flex-col md:flex-row w-full md:justify-between bottom-0 bg-[#CECECE] p-6 leading-none">
+    <div id="footer" className="flex flex-col md:flex-row w-full md:justify-between md:items-center absolute bottom-0 bg-[#CECECE] p-6 leading-none">
       <div className={`${bricolageGrotesque.className} font-bold text-2xl mb-6 md:m-0`}>
         Let&#39;s Connect! ✌️
       </div>
