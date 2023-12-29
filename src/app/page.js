@@ -15,7 +15,7 @@ export default function Home() {
             <b 
               className={`${bricolageGrotesque.className} font-extrabold md:text-5xl`}
             > human centered designer</b>
-            , I’ve helped small start ups design big ideas and big companies continuously champion end users. </p>
+            , I&aposve helped small start ups design big ideas and big companies continuously champion end users. </p>
         </div>
       </section>
       <section id="work" className="relative border-t-2 border-black">
