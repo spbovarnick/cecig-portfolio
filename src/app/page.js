@@ -18,8 +18,11 @@ export default function Home() {
             , I&aposve helped small start ups design big ideas and big companies continuously champion end users. </p>
         </div>
       </section>
-      <section id="work" className="relative border-t-2 border-black">
+      <section id="work" className="relative border-t-2 border-black h-screen">
         <div id="work-title" className="absolute top-0 left-[5rem] md:left-[6.5rem] -translate-y-2/4 text-xl font-extrabold tracking-wide">WORK</div>
+      </section>
+      <section id="writing" className="relative border-t-2 border-black h-screen">
+        <div id="writing-title" className="absolute top-0 left-[5rem] md:left-[6.5rem] -translate-y-2/4 text-xl font-extrabold tracking-wide">WRITING</div>
       </section>
     </div>
   )

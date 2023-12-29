@@ -18,6 +18,6 @@ body {
   background: var(--background, #E9E4E0);
 }
 
-#work-title {
+#work-title, #writing-title {
   background: linear-gradient(to bottom, var(--background) 50%, rgba(0,0,0,0) 50%);
 }
