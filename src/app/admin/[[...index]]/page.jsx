@@ -13,5 +13,9 @@ import { NextStudio } from 'next-sanity/studio'
 import config from '../../../../sanity.config'
 
 export default function StudioPage() {
-  return <NextStudio config={config} />
+  return (
+    <div className='w-screen h-screen absolute top-0 left-0'>
+      <NextStudio config={config} />
+    </div>
+  )
 }
