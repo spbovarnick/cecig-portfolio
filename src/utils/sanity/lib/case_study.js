@@ -20,6 +20,15 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: "Slug",
+      name: "slug",
+      type: "slug",
+      description: "This will be used to generate the URL for this case study",
+      options: {
+        source: 'project',
+      }
+    },
+    {
       title: "Client",
       name: "client",
       type: "string",

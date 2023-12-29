@@ -11,7 +11,7 @@ export default function Home() {
           <p
             className="text-2xl md:text-4xl font-semibold"
           >
-            I'm an interaction design fellow at IDEO shaping product experiences across various industries with a focus on emerging technology. I&aposve got a knack for creating something from nothing while forging new creative pathways. As a 
+            I&aposm an interaction design fellow at IDEO shaping product experiences across various industries with a focus on emerging technology. I&aposve got a knack for creating something from nothing while forging new creative pathways. As a 
             <b 
               className={`${bricolageGrotesque.className} font-extrabold md:text-5xl`}
             > human centered designer</b>
