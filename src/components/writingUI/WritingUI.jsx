@@ -1,3 +1,6 @@
+import { inter } from "@/app/fonts"
+import Link from "next/link"
+import './writing-ui.css'
 
 export default function WritingUI({ url, title, host }) {
   return (
