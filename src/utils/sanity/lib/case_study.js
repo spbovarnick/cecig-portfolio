@@ -24,6 +24,7 @@ export default {
       name: "slug",
       type: "slug",
       description: "This will be used to generate the URL for this case study",
+      validation: (Rule) => Rule.required(),
       options: {
         source: 'project',
       }
