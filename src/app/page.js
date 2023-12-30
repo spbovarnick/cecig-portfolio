@@ -16,6 +16,7 @@ export default async function Home() {
     },
     "writingData": *[_type == 'writing']{
       _id,
+      publication,
       title,
       link,
     }
@@ -24,7 +25,6 @@ export default async function Home() {
   try {
     const data = await sanityFetch({ query: query, qParams: {} });
     ({workData, writingData} = data);
-    console.log(writingData)
   } catch (error) {
     console.log("Error fetching landing page data from Sanity:", error)
     return null
@@ -63,6 +63,7 @@ export default async function Home() {
             key={writing._id}
             title={writing.title}
             link={writing.link}
+            pub={writing.publication}
           />
         ))}
       </section>
