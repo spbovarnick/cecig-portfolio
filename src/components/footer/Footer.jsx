@@ -1,21 +1,22 @@
-import { bricolageGrotesque } from "@/app/fonts"
+import { bricolageGrotesque } from "@/app/fonts";
+import './footer.css';
 
 export default function Footer(){
 
   return (
-    <div id="footer" className="flex flex-col md:flex-row w-full md:justify-between md:items-center absolute bottom-0 bg-[#CECECE] p-6 leading-none">
-      <div className={`${bricolageGrotesque.className} font-bold text-2xl mb-6 md:m-0`}>
+    <div id="footer" className="box-border flex flex-col md:flex-row w-full md:justify-between md:items-center absolute bottom-0 bg-[#CECECE] p-6 md:p-0 md:h-[119px] leading-none text-2xl">
+      <div id="CTAnect" className={`${bricolageGrotesque.className} font-bold text-[32px] mb-6 md:absolute md:mb-0 md:left-[38px]`}>
         Let&#39;s Connect! ✌️
       </div>
-      <div className="hidden md:block">
-        <a className="pr-[22px]" href="mailto:iamcecig@gmail.com">Email Me</a>
-        <a className="pl-[22px]" href="https://www.linkedin.com/in/cecigomez/" target="_blank" >LinkedIn</a>
+      <div className="hidden md:flex absolute left-2/4 -translate-x-2/4 gap-x-[21px]">
+        <a className="footer-link" href="mailto:iamcecig@gmail.com">Email Me</a>
+        <a className="footer-link" href="https://www.linkedin.com/in/cecigomez/" target="_blank" >LinkedIn</a>
       </div>
-      <a className="hidden md:block" href="TKTKTK" target="_blank">Resume</a>
+      <a className="footer-link hidden md:block absolute right-[38px]" href="TKTKTK" target="_blank">Resume</a>
       <div className="flex flex-col md:hidden">
-        <a className="mb-4" href="mailto:iamcecig@gmail.com">Email Me</a>
-        <a className="mb-4" href="https://www.linkedin.com/in/cecigomez/" target="_blank" >LinkedIn</a>
-        <a className="" href="TKTKTK" target="_blank">Resume</a>
+        <a className="mb-4 footer-link" href="mailto:iamcecig@gmail.com">Email Me</a>
+        <a className="mb-4 footer-link" href="https://www.linkedin.com/in/cecigomez/" target="_blank" >LinkedIn</a>
+        <a className=" footer-link" href="TKTKTK" target="_blank">Resume</a>
       </div>
     </div>
   )

@@ -1,0 +1,12 @@
+.footer-link {
+  transition: all 300ms ease;
+  border-bottom: 3px solid transparent;
+}
+
+#CTAnect {
+  border-bottom: 3px solid transparent;
+}
+
+.footer-link:hover {
+  border-bottom: 3px solid #EB56E8;
+}

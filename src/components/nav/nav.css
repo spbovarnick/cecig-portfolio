@@ -2,3 +2,22 @@
   background: var(--background, #E9E4E0);
   
 }
+
+#nav-logo:hover path {
+  fill: #EB56E8;
+}
+#nav-logo:hover rect {
+  fill: #EB56E8;
+}
+
+#nav-logo path, rect {
+  transition: fill 300ms ease-in;
+}
+
+.nav-link {
+  transition: all 300ms ease;
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid #EB56E8;
+}
