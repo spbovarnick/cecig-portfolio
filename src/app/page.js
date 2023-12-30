@@ -2,24 +2,34 @@ import { sanityFetch } from "@/utils/api/sanityFetch"
 import Headline from "@/components/headline/Headline"
 import { bricolageGrotesque } from "./fonts"
 import WorkUI from "@/components/workUI/WorkUI"
+import WritingUI from "@/components/writingUI/WritingUI"
 
 
 
 export default async function Home() {
-  const query = `*[_type == 'case_study']{
-    _id,
-    project,
-    client,
-    'slug': slug.current,
+  const query = `*[_type in ['case_study', 'writing']][0]{
+    "workData": *[_type == 'case_study'] {
+      _id,
+      project,
+      client,
+      'slug': slug.current,    
+    },
+    "writingData": *[_type == 'writing']{
+      _id,
+      title,
+      link,
+    }
   }`
-  let landingData;
+  let workData, writingData;
   try {
-    landingData = await sanityFetch({ query: query, qParams: {} });
+    const data = await sanityFetch({ query: query, qParams: {} });
+    ({workData, writingData} = data);
+    console.log(writingData)
   } catch (error) {
     console.log("Error fetching landing page data from Sanity:", error)
     return null
   }
-
+  
   return (
     <div className="max-w-screen">
       <section className="h-fit min-h-screen ">
@@ -37,7 +47,7 @@ export default async function Home() {
       </section>
       <section id="work" className="relative border-t-2 border-black h-screen mt-[68px] scroll-mt-20 md:mt-28 md:scroll-mt-32">
         <div id="work-title" className="absolute top-0 left-[4rem] md:left-[5.5rem] -translate-y-2/4 text-xl font-extrabold tracking-widest px-4">WORK</div>
-        { landingData.map((caseStudy) => (
+        {  workData.map((caseStudy) => (
           <WorkUI 
             key={caseStudy._id} 
             slug={caseStudy.slug} 
@@ -48,6 +58,13 @@ export default async function Home() {
       </section>
       <section id="writing" className="relative border-t-2 border-black h-screen">
         <div id="writing-title" className="absolute top-0 left-[4rem] md:left-[5.5rem] -translate-y-2/4 text-xl font-extrabold tracking-widest px-4">WRITING</div>
+        {  writingData.map((writing) => (
+          <WritingUI 
+            key={writing._id}
+            title={writing.title}
+            link={writing.link}
+          />
+        ))}
       </section>
     </div>
   )
