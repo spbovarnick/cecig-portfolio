@@ -6,7 +6,7 @@ import { bricolageGrotesque } from "@/app/fonts";
 export default function Headline({ text }) { 
 
   return (
-    <div className="w-full m-0 flex justify-center">
+    <div className="w-full m-0 flex justify-center relative" style={{ pointerEvents: "none"}}>
       <AutoTextSize
         minFontSizePx={50}
         maxFontSizePx={300}
