@@ -32,7 +32,7 @@ export default function ProblemPrinciples({ problemPrinciples }) {
   const headerClasses = `${bricolageGrotesque.className} text-[32px] text-black font-bold mb-6`
 
   return (
-    <div className="lg:flex lg:items-center bg-white px-6 py-16">
+    <section className="lg:flex lg:items-center bg-white px-6 py-16">
       <div className="lg:w-2/5 lg:flex lg:flex-col">
         <div id="problem" className="order-1 mb-5 lg:mb-[72px]">
           <p className={headerClasses}>THE PROBLEM</p>
@@ -51,6 +51,6 @@ export default function ProblemPrinciples({ problemPrinciples }) {
           <ClientImg img={problemPrinciples.pp_image} />
         </div>
       </div>
-    </div>
+    </section>
   )
 }

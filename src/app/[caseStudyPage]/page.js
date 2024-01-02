@@ -2,6 +2,7 @@ import { sanityFetch } from "@/utils/api/sanityFetch"
 import { sanityClient } from "@/utils/sanity/lib/client"
 import HeroHeader from "@/components/caseStudy/HeroHeader"
 import ProblemPrinciples from "@/components/caseStudy/ProblemPrinciples"
+import Scope from "@/components/caseStudy/Scope"
 
 export async function generateStaticParams() {
   try {
@@ -51,6 +52,7 @@ export default async function casStudy({ params }){
         }
       }
     },
+    "deliverables": scope[]->deliverable_name,
   }`
 
   const caseStudy = await sanityFetch({query: query, qParams: {slug: caseStudyPage} })
@@ -63,6 +65,9 @@ export default async function casStudy({ params }){
       }
       { caseStudy.problem_principles && 
         <ProblemPrinciples problemPrinciples={caseStudy.problem_principles} />
+      }
+      { caseStudy.deliverables &&
+        <Scope deliverables={caseStudy.deliverables} />
       }
     </div>
   )

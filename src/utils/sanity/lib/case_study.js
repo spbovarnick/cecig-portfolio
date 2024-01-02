@@ -1,3 +1,5 @@
+import { Rule } from "postcss";
+
 let yearNow = new Date().getFullYear()
 
 export default {
@@ -36,9 +38,6 @@ export default {
           title: 'Alternative text',
           description: 'Important for SEO and accessiblity.',
           validation: (Rule) => Rule.required(),
-          options: {
-            isHighlighted: true,
-          },
         },
       ]
     },
@@ -170,11 +169,23 @@ export default {
               title: 'Alternative text',
               description: 'Important for SEO and accessiblity.',
               validation: (Rule) => Rule.required(),
-              options: {
-                isHighlighted: true,
-              },
             },
           ],
+        },
+      ],
+    },
+    {
+      name: 'scope',
+      title: 'Scope of Work',
+      description: "An ordered list that describes the scope of work for this project",
+      validation: Rule => Rule.required(),
+      type: 'array',
+      of: [
+        {
+          name: 'deliverable',
+          type: 'reference',
+          weak: true,
+          to: [{ type: 'deliverable' }],
         },
       ],
     },
