@@ -8,7 +8,7 @@ export default function Nav() {
   return (
     <div id="nav" className="box-border w-full h-[109px] sticky top-0 z-50">
       <Link 
-        className="absolute left-10 top-[22px] hidden md:block" 
+        className="absolute left-10 top-[22px]" 
         href='/'
       >
         <svg width="64" id='nav-logo' height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">

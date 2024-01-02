@@ -14,13 +14,10 @@ export default function HeroHeader({caseStudy}) {
   const heroContentClasess = `text-xl font-bold`
 
   return (
-    <div className="relative h-fit ">
-      <div className="relative top-0 right-0 w-screen h-fit md:w-2/5 bg-black bg-opacity-50">
-        {/* <img src={urlFor(banner_image.asset).width(1500).height(1500).fit(crop).bg('#00FFFFFF').url()} /> */}
+    <div className="relative h-fit lg:flex flex-row-reverse ">
+      <div className="relative w-screen h-fit lg:w-2/5 bg-black bg-opacity-50 lg:h-full w-fit">
         <Image 
-          // src={img_url}
           {...impageProps}
-          
           alt="Casestudy banner image"
           width={500}
           height={500}
@@ -34,11 +31,11 @@ export default function HeroHeader({caseStudy}) {
             alt="Hush sticker"
             width={169}
             height={169}
-            className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 md:translate-x-0 md:translate-y-0 md:right-10 md:top-[55px] md:left-auto"
+            className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 lg:translate-x-0 lg:translate-y-0 lg:right-10 lg:top-[55px] lg:left-auto"
           />
         }
       </div>
-      <div className="grid grid-cols-1 gap-y-8 px-6 pt-8 pb-20">
+      <div className="grid grid-cols-1 gap-y-8 px-6 pt-8 pb-20 lg:grid-cols-2">
         <div >
           <p className={heroHeaderClasses}>PROJECT</p>
           <p className={heroContentClasess} >{project}</p>
