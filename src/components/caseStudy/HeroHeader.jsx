@@ -1,30 +1,18 @@
-
-"use client"
-
 import Image from "next/image"
-import { sanityClient } from "@/utils/sanity/lib/client"
-import { useNextSanityImage } from "next-sanity-image"
 import { bricolageGrotesque } from "@/app/fonts"
+import ClientImg from "./ClientImg"
 
 export default function HeroHeader({caseStudy}) {
   const { _id, project, client, year, img_url, slug, nda, timeline, skills, team, banner_image } = caseStudy
-  const impageProps = useNextSanityImage(sanityClient, banner_image)
+  
   
   const heroHeaderClasses = `${bricolageGrotesque.className} text-2xl text-[#9A9A9A] font-bold`
   const heroContentClasess = `text-xl font-bold`
 
   return (
     <div className="relative h-fit lg:flex flex-row-reverse ">
-      <div className="relative w-screen h-fit lg:w-2/5 bg-black bg-opacity-50 lg:h-full w-fit">
-        <Image 
-          {...impageProps}
-          alt="Casestudy banner image"
-          width={500}
-          height={500}
-          placeholder="blur"
-          blurDataURL={banner_image.asset.metadata.lqip}
-          className="w-full h-auto object-contain"
-        />
+      <div className="relative w-screen h-auto lg:w-2/5 lg:h-full lg:w-auto">
+        <ClientImg img={banner_image} />
         { nda &&
           <Image 
             src={'/sh_ sticker.png'}

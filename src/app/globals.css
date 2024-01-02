@@ -21,3 +21,12 @@ body {
 #work-title, #writing-title {
   background: linear-gradient(to bottom, var(--background) 50%, rgba(0,0,0,0) 50%);
 }
+
+.hover-link-ui {
+  border-bottom: 2px solid transparent;
+  transition: all 300ms ease;
+}
+
+.hover-link-ui:hover {
+  border-bottom: 2px solid #EB56E8;
+}

@@ -28,7 +28,19 @@ export default {
       validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
-      }
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+          description: 'Important for SEO and accessiblity.',
+          validation: (Rule) => Rule.required(),
+          options: {
+            isHighlighted: true,
+          },
+        },
+      ]
     },
     {
       title: "Slug",
@@ -123,6 +135,46 @@ export default {
               };
             },
           },
+        },
+      ],
+    },
+    {
+      name: "problem_principles",
+      title: "Problem & Principles",
+      description: "What was the problem you were trying to solve? What were the guiding principles you used to solve it? (This will be used in the 'Problem & Principles' section of the case study page)",
+      type: "object",
+      fields: [
+        {
+          name: "problem",
+          title: "Problem",
+          type: "array",
+          of: [{type: "block"}],
+          validation: (Rule) => Rule.required(),
+        },
+        {
+          name: "principles",
+          title: "Principles",
+          type: "array",
+          of: [{type: "block"}],
+          validation: (Rule) => Rule.required(),
+        },
+        {
+          name: "pp_image",
+          title: "Problem & Principles Image",
+          type: "image",
+          validation: (Rule) => Rule.required(),
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              description: 'Important for SEO and accessiblity.',
+              validation: (Rule) => Rule.required(),
+              options: {
+                isHighlighted: true,
+              },
+            },
+          ],
         },
       ],
     },

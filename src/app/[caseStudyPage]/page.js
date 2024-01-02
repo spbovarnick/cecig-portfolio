@@ -1,6 +1,7 @@
 import { sanityFetch } from "@/utils/api/sanityFetch"
 import { sanityClient } from "@/utils/sanity/lib/client"
 import HeroHeader from "@/components/caseStudy/HeroHeader"
+import ProblemPrinciples from "@/components/caseStudy/ProblemPrinciples"
 
 export async function generateStaticParams() {
   try {
@@ -26,7 +27,9 @@ export default async function casStudy({ params }){
     year,
     nda,
     'img_url': banner_image.asset -> url,
-    banner_image{asset -> {
+    banner_image{
+      alt,
+      asset -> {
       ...,
       metadata
     }},
@@ -36,16 +39,30 @@ export default async function casStudy({ params }){
     team[]{
       "type": team_member->member_type,
       count
-    }
+    },
+    problem_principles{
+      problem,
+      principles,
+      pp_image{
+        alt,
+        asset -> {
+          ...,
+          metadata,
+        }
+      }
+    },
   }`
 
   const caseStudy = await sanityFetch({query: query, qParams: {slug: caseStudyPage} })
-
+  
 
   return (
     <div>
       { caseStudy && 
         <HeroHeader caseStudy={caseStudy} />
+      }
+      { caseStudy.problem_principles && 
+        <ProblemPrinciples problemPrinciples={caseStudy.problem_principles} />
       }
     </div>
   )
