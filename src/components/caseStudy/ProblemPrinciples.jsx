@@ -32,8 +32,8 @@ export default function ProblemPrinciples({ problemPrinciples }) {
   const headerClasses = `${bricolageGrotesque.className} text-[32px] text-black font-bold mb-6`
 
   return (
-    <div className="lg:flex lg:justify-between bg-white px-6 py-16">
-      <div className="lg:w-2/5">
+    <div className="lg:flex lg:items-center bg-white px-6 py-16">
+      <div className="lg:w-2/5 lg:flex lg:flex-col">
         <div id="problem" className="order-1 mb-5 lg:mb-[72px]">
           <p className={headerClasses}>THE PROBLEM</p>
           <PortableText value={problemPrinciples.problem} components={blockComponents} />
@@ -46,12 +46,11 @@ export default function ProblemPrinciples({ problemPrinciples }) {
           <PortableText value={problemPrinciples.principles} components={blockComponents} />
         </div>
       </div>
-      {/* <div className="hidden lg:block lg:flex lg:max-w-full lg:justify-center"> */}
-      <div className="hidden lg:block lg:w-2/5 lg:order-1 lg:mx-auto">
-        <ClientImg img={problemPrinciples.pp_image} />
+      <div className="hidden lg:block lg:w-3/5 lg:h-full lg:order-1 lg:flex lg:justify-center lg:items-center">
+        <div className="w-2/3">
+          <ClientImg img={problemPrinciples.pp_image} />
+        </div>
       </div>
-
-      {/* </div> */}
     </div>
   )
 }
