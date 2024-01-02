@@ -8,7 +8,7 @@ export default function LandingPageTop() {
 
   return (
     <section className="h-fit min-h-screen relative">
-      <Suspense>
+      <Suspense >
         <Spline scene="https://prod.spline.design/4p9nsZC5GazESSjd/scene.splinecode" className="absolute top-0 " />
       </Suspense>
       <Headline text="CECI GOMEZ" />

@@ -1,4 +1,3 @@
-import { Bricolage_Grotesque } from 'next/font/google'
 import { manrope } from './fonts'
 import './globals.css'
 import Nav from '@/components/nav/Nav'
@@ -12,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} relative min-h-screen pb-[252px] md:pb-[119px]`}>
+      <body className={`${manrope.className} relative pb-[252px] md:pb-[119px]`}>
       <Nav />
       <div >
         {children}

@@ -2,6 +2,7 @@ export default {
   name: 'writing',
   title: 'Writing',
   type: 'document',
+  icon: () => '✍️',
   fields: [
     {
       name: 'title',

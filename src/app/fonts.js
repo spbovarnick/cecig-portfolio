@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Manrope, Inter } from 'next/font/google'
 export const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
   display: 'swap',
+  adjustFontFallback: false,
 })
 
 export const manrope = Manrope({

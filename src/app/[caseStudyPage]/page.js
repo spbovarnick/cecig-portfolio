@@ -1,5 +1,5 @@
 import { sanityFetch } from "@/utils/api/sanityFetch"
-import { client } from "@/utils/sanity/lib/client"
+import { sanityClient } from "@/utils/sanity/lib/client"
 import HeroHeader from "@/components/caseStudy/HeroHeader"
 
 export async function generateStaticParams() {
@@ -7,7 +7,7 @@ export async function generateStaticParams() {
     const query = `*[_type == "case_study"]{
       'caseStudyPage': slug.current,
     }`
-    const slugs = await client.fetch(query)
+    const slugs = await sanityClient.fetch(query)
     return slugs.map(slug => ({
       params: { slug: slug.slug }
     }))
@@ -26,11 +26,20 @@ export default async function casStudy({ params }){
     year,
     nda,
     'img_url': banner_image.asset -> url,
+    banner_image{asset -> {
+      ...,
+      metadata
+    }},
     'slug': slug.current,
+    timeline,
+    "skills": skills[]->skillName,
+    team[]{
+      "type": team_member->member_type,
+      count
+    }
   }`
 
   const caseStudy = await sanityFetch({query: query, qParams: {slug: caseStudyPage} })
-  
 
 
   return (
