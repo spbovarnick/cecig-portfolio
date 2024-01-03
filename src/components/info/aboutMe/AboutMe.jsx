@@ -1,4 +1,5 @@
 import { PortableText } from "@portabletext/react"
+import { bricolageGrotesque } from "@/app/fonts"
 import './aboutMe.css'
 
 const blockComponents = {
@@ -28,11 +29,17 @@ const blockComponents = {
 
 export default function AboutMe({ blurb }) {
 
-  console.log(blurb)
-
   return (
-    <div id="info-blurb">
-      <PortableText value={blurb} components={blockComponents} />
+    <div 
+      id="info-blurb"
+      className="w-full lg:w-3/5 lg:flex lg:justify-center"
+    >
+      <div 
+        className="lg:w-2/3"
+      >
+        <div className={`${bricolageGrotesque.className} text-2xl text-black font-bold leading-none mt-8 w-full lg:mt-0`} >ABOUT ME</div>
+        <PortableText value={blurb} components={blockComponents} />
+      </div>
     </div>
   )
 }

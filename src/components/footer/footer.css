@@ -1,6 +1,7 @@
 .footer-link {
   transition: all 300ms ease;
   border-bottom: 3px solid transparent;
+  width: fit-content;
 }
 
 #CTAnect {

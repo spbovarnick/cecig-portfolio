@@ -79,14 +79,14 @@ export default {
               name: 'start_date',
               title: 'Start Date',
               type: 'string',
-              description: 'When did you start working here? Don\'t worry about the day.',
+              description: 'When did you start working here? (EX: "June 2023", "2022")',
               validation: (Rule) => Rule.required(),
             },
             {
               name: 'end_date',
               title: 'End Date',
               type: 'string',
-              description: 'When did you stop working here? Don\'t worry about the day.',
+              description: 'When did you stop working here? (EX: "June 2023", "2022")',
               validation: (Rule) => Rule.custom((endDate, context) => {
                 const { start_date, still_working } = context.parent
                 if (still_working) {
