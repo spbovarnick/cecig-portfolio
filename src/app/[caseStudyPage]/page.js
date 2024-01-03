@@ -69,6 +69,7 @@ export default async function casStudy({ params }){
       { caseStudy.deliverables &&
         <Scope deliverables={caseStudy.deliverables} />
       }
+      
     </div>
   )
 }
