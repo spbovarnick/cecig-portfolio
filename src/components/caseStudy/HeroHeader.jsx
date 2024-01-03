@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { bricolageGrotesque } from "@/app/fonts"
-import ClientImg from "./ClientImg"
+import ClientImg from "../ClientImg"
 
 export default function HeroHeader({caseStudy}) {
   const { _id, project, client, year, img_url, slug, nda, timeline, skills, team, banner_image } = caseStudy

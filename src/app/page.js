@@ -1,6 +1,4 @@
 import { sanityFetch } from "@/utils/api/sanityFetch"
-// import Headline from "@/components/headline/Headline"
-// import { bricolageGrotesque } from "./fonts"
 import WorkUI from "@/components/workUI/WorkUI"
 import WritingUI from "@/components/writingUI/WritingUI"
 import LandingPageTop from "@/components/landingPageTop/LandingPageTop"

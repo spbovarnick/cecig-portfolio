@@ -6,6 +6,7 @@ import { useNextSanityImage } from "next-sanity-image"
 
 export default function ClientImg({ img }) {
   const imageProps = useNextSanityImage(sanityClient, img)
+  console.log(img.alt)
 
   return (
     <Image

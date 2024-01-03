@@ -10,16 +10,59 @@ import {deskTool} from 'sanity/desk'
 import {apiVersion, dataset, projectId} from './src/utils/sanity/env'
 import {schema} from './src/utils/sanity/schema'
 
+// Define the actions that should be available for singleton documents
+const singletonActions = new Set(["publish", "discardChanges", "restore"])
+
+// Define the singleton document types
+const singletonTypes = new Set(['info'])
+
 export default defineConfig({
   basePath: '/admin',
   projectId,
   dataset,
   // Add and edit the content schema in the './sanity/schema' folder
-  schema,
+  // schema,
   plugins: [
-    deskTool(),
+    deskTool({
+      structure: (S) =>
+        S.list()
+          .title('Content')
+          .items([
+            S.listItem()
+              .title('Info')
+              .id('info')
+              .icon(() => '💁‍♀️')
+              .child(
+                S.document()
+                  .schemaType('info')
+                  .documentId('info')
+              ),
+
+              S.documentTypeListItem('case_study').title('Case Study'),
+              S.documentTypeListItem('writing').title('Writing'),
+              S.documentTypeListItem('skill').title('Skill'),
+              S.documentTypeListItem('team_member').title('Team Member'),
+              S.documentTypeListItem('deliverable').title('Deliverable'),
+          ])
+    }),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
+
+  schema: {
+    types: schema.types,
+    // Filter out singleton types from the global “New document” menu options
+    templates: (templates) => 
+      templates.filter(({schemaType}) => !singletonTypes.has(schemaType)),
+  },
+
+  document: {
+    // For singleton types, filter out actions that are not explicitly included
+    // in the `singletonActions` list defined above
+    actions: (input, context) => 
+      singletonTypes.has(context.schemaType)
+        ? input.filter(({ action }) => action && singletonActions.has(action))
+        : input,
+  }
 })

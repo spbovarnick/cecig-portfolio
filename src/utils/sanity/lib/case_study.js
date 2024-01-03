@@ -1,4 +1,3 @@
-import { Rule } from "postcss";
 
 let yearNow = new Date().getFullYear()
 

@@ -1,4 +1,4 @@
-import ClientImg from "./ClientImg"
+import ClientImg from "../ClientImg"
 import { PortableText } from "@portabletext/react"
 import { bricolageGrotesque } from "@/app/fonts"
 
