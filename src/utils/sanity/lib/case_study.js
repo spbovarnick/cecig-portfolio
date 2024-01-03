@@ -209,26 +209,95 @@ export default {
               initialValue: false,
             },
             {
+              name: "full_bleed_row",
+              title: "Full Bleed Row",
+              hidden: ({ parent }) => !parent?.full_bleed,
+              icon: () => '👐',
+              type: "array",
+              of: [
+                {
+                  type: "block",
+                  marks: {
+                    annotations: [
+                      {
+                        name: 'deliverableReference',
+                        type: 'object',
+                        title: 'Deliverable reference',
+                        fields: [
+                          {
+                            name: 'deliverable',
+                            type: 'reference',
+                            to: [
+                              { type: 'deliverable' },
+                            ],
+                          },
+                        ],
+                      },
+                      // other annotations like link, etc.
+                    ],
+                  }
+                },
+                {
+                  type: "image",
+                  icon: () => '🖼️'
+                },
+                {
+                  name: "scope_step",
+                  title: "Scope Deliverable",
+                  type: "object",
+                  icon: () => '🪜',
+                  fields: [
+                    {
+                      name: "deliverable",
+                      title: "Deliverable",
+                      type: "reference",
+                      to: [{ type: "deliverable" }],
+                      validation: (Rule) => Rule.required(),
+                    },
+                    {
+                      name: "scope_step",
+                      title: "Scope Step",
+                      description: "What step in the scope of work does this deliverable correspond to?",
+                      type: "number",
+                      validation: (Rule) => Rule.min(1).integer().positive().required(),
+                    }
+                  ],
+                  preview: {
+                    select: {
+                      title: 'deliverable.deliverable_name',
+                      step: 'scope_step',
+                    },
+                    prepare(selection) {
+                      const { title, step } = selection;
+                      return {
+                        title: `${step}: ${title}`
+                      }
+                    }
+                  }
+                },
+              ],
+            },
+            {
               name: "left_col",
               title: "Left Column",
               description: "The content that will appear in the left column of this row",
-              type: "array",
               hidden: ({ parent }) => parent?.full_bleed,
-              // fields: [
-              //   {
-              //     name: "left_col_content_type",
-              //     title: "Content Type",
-              //     type: "string",
-              //     description: "What type of content will appear in this column?",
-              //     options: {
-              //       list: [
-              //         {title: "Rich Text AND Images", value: "rich_text_and_images"},
-              //         {title: "Full-Column Image", value: "full_col_image"},
-              //       ]
-              //     }
-              //   }
-              // ],
               icon: () => '👈',
+              // fields: [
+                //   {
+                  //     name: "left_col_content_type",
+                  //     title: "Content Type",
+                  //     type: "string",
+                  //     description: "What type of content will appear in this column?",
+                  //     options: {
+                    //       list: [
+                      //         {title: "Rich Text AND Images", value: "rich_text_and_images"},
+                      //         {title: "Full-Column Image", value: "full_col_image"},
+                      //       ]
+                      //     }
+                      //   }
+                      // ],
+              type: "array",
               of: [
                 {type: "block",
                 marks: {
