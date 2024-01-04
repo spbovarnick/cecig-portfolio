@@ -4,9 +4,12 @@ export default function Experience({experiences, skills, education}) {
   const headerClasses = `${bricolageGrotesque.className} text-2xl text-[#9A9A9A] font-bold leading-none w-full`
 
   return (
-    <div className="grid grid-cols-1 gap-16">
+    <div className="grid grid-cols-1 gap-y-16 lg:flex lg:grid-cols-none lg:w-4/5 lg:justify-between">
       { experiences &&
-        <section id="experience">
+        <section 
+          id="experience"
+          className="w-fit"
+        >
           <div 
             className={headerClasses}
           >RECENT EXPERIENCE</div>
@@ -27,7 +30,10 @@ export default function Experience({experiences, skills, education}) {
         </section>
       }
       { skills && 
-        <section id="skills">
+        <section 
+          id="skills"
+          className="w-fit"
+        >
           <div className={headerClasses}>SKILLS</div>
             <div className="mt-4">
               {skills.map((skill, index) => (
@@ -40,7 +46,10 @@ export default function Experience({experiences, skills, education}) {
         </section>
       } 
       { education && 
-        <section id="education">
+        <section 
+          id="education"
+          className="w-fit"
+        >
           <div className={headerClasses}>EDUCATION</div>
           {education.map((mat, index) => (
             <div key={index} className="text-xl mt-4">

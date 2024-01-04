@@ -5,14 +5,14 @@ import './into.css'
 export default function Into({ gif }){
 
   return (
-    <div>
+    <div className="lg:flex w-full justify-center items-end">
       <div 
-        className={`${bricolageGrotesque.className} font-extrabold text-8xl tracking-[-9.6px]`}
+        className={`${bricolageGrotesque.className} font-extrabold text-8xl tracking-[-9.6px] mr-4`}
       >
         I’M INTO
       </div>
       <div
-        className="into-gif-container"
+        className="into-gif-container ml-4"
       >
         <ClientImg img={gif} />
       </div>
