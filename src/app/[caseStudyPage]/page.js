@@ -3,6 +3,7 @@ import { sanityClient } from "@/utils/sanity/lib/client"
 import HeroHeader from "@/components/caseStudy/HeroHeader"
 import ProblemPrinciples from "@/components/caseStudy/ProblemPrinciples"
 import Scope from "@/components/caseStudy/Scope"
+import CaseStudyBody from "@/components/caseStudy/body/CaseStudyBody"
 
 export async function generateStaticParams() {
   try {
@@ -53,6 +54,55 @@ export default async function casStudy({ params }){
       }
     },
     "deliverables": scope[]->deliverable_name,
+    body[]{
+      full_bleed,
+      full_bleed_row[]{
+        _type,
+        ...,
+        _type == 'full_bleed_img' => {
+          ...,
+          alt,
+          asset->{
+            _id,
+            ...
+          }
+        },
+        _type == "scope_step" => {
+          ...,
+          deliverable->
+        },
+      },
+      left_col[]{
+          ...,
+          _type == 'left_col_img' => {
+          ...,
+          alt,
+          asset->{
+            _id,
+            ...
+          }
+        },
+        _type == "scope_step" => {
+          ...,
+          "name": deliverable->deliverable_name
+        },
+      },
+      right_col[]{
+        ...,
+        _type == 'right_col_img' => {
+          ...,
+          alt,
+          asset->{
+              _id,
+              ...
+          }
+        },
+        _type == "scope_step" => {
+          ...,
+          deliverable->
+        },
+      },
+    }
   }`
 
   const caseStudy = await sanityFetch({query: query, qParams: {slug: caseStudyPage} })
@@ -69,7 +119,9 @@ export default async function casStudy({ params }){
       { caseStudy.deliverables &&
         <Scope deliverables={caseStudy.deliverables} />
       }
-      
+      { caseStudy.slug &&
+        <CaseStudyBody body={caseStudy.body} />
+        }
     </div>
   )
 }

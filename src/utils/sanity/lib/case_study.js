@@ -146,14 +146,28 @@ export default {
           name: "problem",
           title: "Problem",
           type: "array",
-          of: [{type: "block"}],
+          of: [
+            {
+              type: "block",
+              styles: [
+                { title: 'Normal', value: 'normal' }
+              ],
+            },
+          ],
           validation: (Rule) => Rule.required(),
         },
         {
           name: "principles",
           title: "Principles",
           type: "array",
-          of: [{type: "block"}],
+          of: [
+            {
+              type: "block",
+              styles: [
+                { title: 'Normal', value: 'normal' }
+              ],
+            },
+          ],
           validation: (Rule) => Rule.required(),
         },
         {
@@ -196,7 +210,7 @@ export default {
       of: [
         {
           name: 'row',
-          type: 'document',
+          type: 'object',
           icon: () => '↔',
           fields: [
             {
@@ -216,6 +230,11 @@ export default {
               of: [
                 {
                   type: "block",
+                  styles: [
+                    { title: 'Normal', value: 'normal' },
+                    { title: 'Full Bleed Huge', value: 'h1'},
+                    { title: 'Full Bleed medium', value: 'h2'},
+                  ],
                   marks: {
                     annotations: [
                       {
@@ -232,13 +251,25 @@ export default {
                           },
                         ],
                       },
-                      // other annotations like link, etc.
                     ],
                   }
                 },
                 {
+                  name: "full_bleed_img",
                   type: "image",
-                  icon: () => '🖼️'
+                  icon: () => '🖼️',
+                  options: {
+                    hotspot: true,
+                  },
+                  fields: [
+                    {
+                      name: 'alt',
+                      type: 'string',
+                      title: 'Alternative text',
+                      description: 'Important for SEO and accessiblity.',
+                      validation: (Rule) => Rule.required(),
+                    },
+                  ],
                 },
                 {
                   name: "scope_step",
@@ -282,46 +313,31 @@ export default {
               description: "The content that will appear in the left column of this row",
               hidden: ({ parent }) => parent?.full_bleed,
               icon: () => '👈',
-              // fields: [
-                //   {
-                  //     name: "left_col_content_type",
-                  //     title: "Content Type",
-                  //     type: "string",
-                  //     description: "What type of content will appear in this column?",
-                  //     options: {
-                    //       list: [
-                      //         {title: "Rich Text AND Images", value: "rich_text_and_images"},
-                      //         {title: "Full-Column Image", value: "full_col_image"},
-                      //       ]
-                      //     }
-                      //   }
-                      // ],
               type: "array",
               of: [
-                {type: "block",
-                marks: {
-                  annotations: [
-                    {
-                      name: 'deliverableReference',
-                      type: 'object',
-                      title: 'Deliverable reference',
-                      fields: [
-                        {
-                          name: 'deliverable',
-                          type: 'reference',
-                          to: [
-                            { type: 'deliverable' },
-                          ],
-                        },
-                      ],
-                    },
-                    // other annotations like link, etc.
-                  ],
-                } 
-              },
                 {
+                  type: "block",
+                  styles: [
+                    { title: 'Normal', value: 'normal' },
+                    { title: "Heading", value: 'h3'},
+                  ],
+                },
+                {
+                  name: "left_col_img",
                   type: "image", 
-                  icon: () => '🖼️'
+                  icon: () => '🖼️',
+                  options: {
+                    hotspot: true,
+                  },
+                  fields: [
+                    {
+                      name: 'alt',
+                      type: 'string',
+                      title: 'Alternative text',
+                      description: 'Important for SEO and accessiblity.',
+                      validation: (Rule) => Rule.required(),
+                    },
+                  ],
                 },
                 {
                   name: "scope_step",
@@ -365,46 +381,49 @@ export default {
               description: "The content that will appear in the right column of this row",
               type: "array",
               hidden: ({ parent }) => parent?.full_bleed,
-              // fields: [
-              //   {
-              //     name: "left_col_content_type",
-              //     title: "Content Type",
-              //     type: "string",
-              //     description: "What type of content will appear in this column?",
-              //     options: {
-              //       list: [
-              //         {title: "Rich Text AND Images", value: "rich_text_and_images"},
-              //         {title: "Full-Column Image", value: "full_col_image"},
-              //       ]
-              //     }
-              //   }
-              // ],
               icon: () => '👈',
               of: [
-                {type: "block",
-                marks: {
-                  annotations: [
-                    {
-                      name: 'deliverableReference',
-                      type: 'object',
-                      title: 'Deliverable reference',
-                      fields: [
-                        {
-                          name: 'deliverable',
-                          type: 'reference',
-                          to: [
-                            { type: 'deliverable' },
-                          ],
-                        },
-                      ],
-                    },
-                    // other annotations like link, etc.
-                  ],
-                } 
-              },
                 {
+                  type: "block",
+                  styles: [
+                    { title: 'Normal', value: 'normal' },
+                    { title: "Heading", value: 'h3' },
+                  ],
+                  marks: {
+                    annotations: [
+                      {
+                        name: 'deliverableReference',
+                        type: 'object',
+                        title: 'Deliverable reference',
+                        fields: [
+                          {
+                            name: 'deliverable',
+                            type: 'reference',
+                            to: [
+                              { type: 'deliverable' },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  } 
+                },
+                {
+                  name: "right_col_img",
                   type: "image", 
-                  icon: () => '🖼️'
+                  icon: () => '🖼️',
+                  options: {
+                    hotspot: true,
+                  },
+                  fields: [
+                    {
+                      name: 'alt',
+                      type: 'string',
+                      title: 'Alternative text',
+                      description: 'Important for SEO and accessiblity.',
+                      validation: (Rule) => Rule.required(),
+                    },
+                  ],
                 },
                 {
                   name: "scope_step",
