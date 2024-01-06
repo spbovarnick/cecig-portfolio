@@ -54,7 +54,7 @@ export default function HeroHeader({caseStudy}) {
         </div>
       </div>
       <div className="relative w-screen h-auto lg:w-1/2 lg:h-full lg:w-auto">
-        <ClientImg objectFill={false} fullHeight={false} img={banner_image} />
+        <ClientImg objectCover={false} fullHeight={false} img={banner_image} />
         {nda &&
           <Image
             src={'/sh_ sticker.png'}

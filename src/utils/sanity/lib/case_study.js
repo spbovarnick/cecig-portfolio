@@ -1,5 +1,3 @@
-
-
 let yearNow = new Date().getFullYear()
 
 export default {
@@ -272,8 +270,8 @@ export default {
                 {
                   type: "block",
                   styles: [
-                    { title: 'Full Bleed Huge', value: 'h1'},
-                    { title: 'Full Bleed medium', value: 'h2'},
+                    { title: 'Full Bleed Huge (48px)', value: 'h1'},
+                    { title: 'Full Bleed Medium (32px)', value: 'h2'},
                   ],
                   marks: {
                     annotations: [
@@ -294,23 +292,6 @@ export default {
                     ],
                   }
                 },
-                // {
-                //   name: "full_bleed_img",
-                //   type: "image",
-                //   icon: () => '🖼️',
-                //   options: {
-                //     hotspot: true,
-                //   },
-                //   fields: [
-                //     {
-                //       name: 'alt',
-                //       type: 'string',
-                //       title: 'Alternative text',
-                //       description: 'Important for SEO and accessiblity.',
-                //       validation: (Rule) => Rule.required(),
-                //     },
-                //   ],
-                // },
                 {
                   name: "scope_step",
                   title: "Scope Deliverable",
@@ -370,7 +351,7 @@ export default {
               name: "left_col_text",
               title: "Left Column",
               description: "The content that will appear in the left column of this row",
-              hidden: ({ parent }) => parent?.full_bleed || parent?.img_side === 'left',
+              hidden: ({ parent }) => parent?.full_bleed || parent?.img_side === 'left' || !parent?.img_side,
               icon: () => '👈',
               type: "array",
               of: [
@@ -378,26 +359,9 @@ export default {
                   type: "block",
                   styles: [
                     { title: 'Normal', value: 'normal' },
-                    { title: "Heading", value: 'h3'},
+                    { title: "Heading", value: 'h2'},
                   ],
                 },
-                // {
-                //   name: "left_col_img",
-                //   type: "image", 
-                //   icon: () => '🖼️',
-                //   options: {
-                //     hotspot: true,
-                //   },
-                //   fields: [
-                //     {
-                //       name: 'alt',
-                //       type: 'string',
-                //       title: 'Alternative text',
-                //       description: 'Important for SEO and accessiblity.',
-                //       validation: (Rule) => Rule.required(),
-                //     },
-                //   ],
-                // },
                 {
                   name: "scope_step",
                   title: "Scope Deliverable",
@@ -457,14 +421,14 @@ export default {
               title: "Right Column",
               description: "The content that will appear in the right column of this row",
               type: "array",
-              hidden: ({ parent }) => parent?.full_bleed || parent?.img_side === 'right',
+              hidden: ({ parent }) => parent?.full_bleed || parent?.img_side === 'right' || !parent?.img_side,
               icon: () => '👈',
               of: [
                 {
                   type: "block",
                   styles: [
                     { title: 'Normal', value: 'normal' },
-                    { title: "Heading", value: 'h3' },
+                    { title: "Heading", value: 'h2' },
                   ],
                   marks: {
                     annotations: [
@@ -485,23 +449,6 @@ export default {
                     ],
                   } 
                 },
-                // {
-                //   name: "right_col_img",
-                //   type: "image", 
-                //   icon: () => '🖼️',
-                //   options: {
-                //     hotspot: true,
-                //   },
-                //   fields: [
-                //     {
-                //       name: 'alt',
-                //       type: 'string',
-                //       title: 'Alternative text',
-                //       description: 'Important for SEO and accessiblity.',
-                //       validation: (Rule) => Rule.required(),
-                //     },
-                //   ],
-                // },
                 {
                   name: "scope_step",
                   title: "Scope Deliverable",
@@ -548,19 +495,36 @@ export default {
               full_bleed: "full_bleed",
               full_bleed_text_or_img: "full_bleed_text_or_img",
               img_side: "img_side",
+              full_bleed: "full_bleed",
+              icon: '↔️'
             },
             prepare(selection) {
-              const { title, full_bleed_img, left_col_img, right_col_img, } = selection;
-              let media;
-              if (full_bleed_img) {
-                media = full_bleed_img;
-              } else if (!full_bleed_img && img_side == "left") {
-                media = left_col_img;
-              } else if (!full_bleed_img && img_side == "right") {
-                media = right_col_img;
+              const { title, full_bleed_img, left_col_img, right_col_img, full_bleed, full_bleed_text_or_img, img_side, icon } = selection;
+              const imgLeftIcon = '🖼👈'
+              const imgRightIcon = '👉🖼'
+              let media, subtitle;
+              if (full_bleed) {
+                full_bleed_text_or_img == 'image' ? media = full_bleed_img : media = icon;
+              } else {
+                if (img_side == "left") {
+                  left_col_img ? media = left_col_img : imgLeftIcon;
+                } else {
+                  right_col_img ? media = right_col_img : imgRightIcon;
+                }
+              }
+
+              if (full_bleed) {
+                full_bleed_text_or_img == 'image' ? subtitle = 'Full Bleed Image' : subtitle = 'Full Bleed Text'
+              } else {
+                if (img_side == 'left') {
+                  subtitle = 'Left Column Image'
+                } else {
+                  subtitle = 'Right Column Image'
+                }
               }
               return {
                 title: title ? title : 'Row',
+                subtitle: subtitle,
                 media: media,
               }
             }

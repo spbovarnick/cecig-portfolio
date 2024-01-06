@@ -1,18 +1,17 @@
 // import { sanityFetch } from "@/utils/api/sanityFetch"
-import ClientImg from "@/components/ClientImg"
-import { PortableText } from "@portabletext/react"
 import { bricolageGrotesque } from "@/app/fonts"
 import './caseStudyBody.css'
 import FullBleedRow from "./FullBleedRow"
+import TwoColRow from "./TwoColRow"
 
 const blockComponents = {
   types: {
-    full_bleed_img: ({ value }) => <ClientImg fullHeight={true} objectFill={true} img={value} />,
-    left_col_img: ({ value }) => <ClientImg fullHeight={true} objectFill={true} img={value} />,
-    right_col_img: ({ value }) => <ClientImg fullHeight={true} objectFill={true} img={value} />,
+    // full_bleed_img: ({ value }) => <ClientImg fullHeight={true} objectCover={true} img={value} />,
+    // left_col_img: ({ value }) => <ClientImg fullHeight={true} objectCover={true} img={value} />,
+    // right_col_img: ({ value }) => <ClientImg fullHeight={true} objectCover={true} img={value} />,
     scope_step: ({ value }) => {
       return (
-        <div className="flex items-center h-fit w-fit">
+        <div className="flex items-center h-fit w-fit mb-6">
           <div className={`${bricolageGrotesque.className} text-5xl text-black font-bold w-[76px] h-[76px] p-2 flex items-center justify-center bg-[#75FA4D] rounded-full mr-6`}>{value.scope_step}</div>
           <div className="font-semibold">{value.name}</div>
         </div>
@@ -41,22 +40,27 @@ const blockComponents = {
     bullet: ({ children }) => <li className="text-md">{children}</li>
   },
   block: {
-    normal: ({ children }) => <p className="font-semibold">{children}</p>
+    normal: ({ children }) => <p className="font-semibold">{children}</p>,
+    h1: ({ children }) => <h1 className="font-bold text-5xl">{children}</h1>,
+    h2: ({ children }) => <h1 className="font-bold text-[32px]">{children}</h1>,
   }
 }
 
 export default function CaseStudyBody({body}) {
-
+  
   return (
-    <section className="grid grid-cols-1 bg-white px-6 py-16">
+    <section className="grid grid-cols-1 bg-white">
       { body?.map((row, index) => 
         row.full_bleed ? (
-          <FullBleedRow />
+          <FullBleedRow
+            key={row._key} 
+            blockComponents={blockComponents} 
+            img={row.full_bleed_row_img} 
+            text={row.full_bleed_text} 
+            textOrImg={row.full_bleed_text_or_img} 
+          />
         ) : (
-          <div key={index}>
-            <PortableText value={row.left_col} components={blockComponents} />
-            <PortableText value={row.right_col} components={blockComponents} />
-          </div>
+          <TwoColRow key={row._key} row={row} blockComponents={blockComponents} />
         )
       )}
     </section>

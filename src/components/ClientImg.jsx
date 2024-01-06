@@ -4,9 +4,8 @@ import Image from "next/image"
 import { sanityClient } from "@/utils/sanity/lib/client"
 import { useNextSanityImage } from "next-sanity-image"
 
-export default function ClientImg({ img, fullHeight, objectFill }) {
+export default function ClientImg({ img, fullHeight, objectCover }) {
   const imageProps = useNextSanityImage(sanityClient, img)
-  // console.log(img.alt)
   
   return (
     <Image
@@ -17,7 +16,7 @@ export default function ClientImg({ img, fullHeight, objectFill }) {
       placeholder="blur"
       blurDataURL={img.asset.metadata.lqip}
       // className="w-full h-auto object-contain"
-      className={`w-full ${fullHeight ? 'h-full' : 'h-auto'} ${objectFill ? 'object-fill' : 'object-contain'}`}
+      className={`w-full ${fullHeight ? 'h-full' : 'h-auto'} ${objectCover ? 'object-cover' : 'object-contain'}`}
     />
   )
 }

@@ -11,7 +11,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} relative pb-[252px] md:pb-[119px] min-h-screen`}>
+      <body className={`${manrope.className} relative pb-[220px] md:pb-[119px] min-h-screen`}>
       <Nav />
       <div >
         {children}

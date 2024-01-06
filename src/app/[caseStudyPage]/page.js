@@ -56,6 +56,7 @@ export default async function casStudy({ params }){
     },
     "deliverables": scope[]->deliverable_name,
     body[]{
+      _key,
       full_bleed,
       full_bleed_text_or_img,
       img_side,
@@ -72,10 +73,17 @@ export default async function casStudy({ params }){
         ...,
         _type == "scope_step" => {
           ...,
-          deliverable->
+          "name": deliverable->deliverable_name
         },
       },
       left_col_img{
+        alt,
+        asset -> {
+          ...,
+          metadata
+        }
+      },
+      right_col_img{
         alt,
         asset -> {
           ...,
@@ -87,7 +95,7 @@ export default async function casStudy({ params }){
         ...,
         _type == "scope_step" => {
           ...,
-          deliverable->
+          "name": deliverable->deliverable_name
         },
       },
       right_col_text[]{
@@ -95,7 +103,7 @@ export default async function casStudy({ params }){
         ...,
         _type == "scope_step" => {
           ...,
-          deliverable->
+          "name": deliverable->deliverable_name
         },
       },
     }

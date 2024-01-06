@@ -33,9 +33,9 @@ const blockComponents = {
 export default function ProblemPrinciples({ problemPrinciples }) {
 
   return (
-    <section className="lg:grid lg:grid-cols-2 bg-white lg:h-[718px]">
+    <section className="lg:grid lg:grid-cols-2 bg-white lg:h-718">
       <div className="w-full h-full">
-        <ClientImg fullHeight={true} objectFill={true} img={problemPrinciples.pp_image} />
+        <ClientImg fullHeight={true} objectCover={true} img={problemPrinciples.pp_image} />
       </div>
       <div className="flex items-center justify-center">
         <div className="w-1/2 py-16">
