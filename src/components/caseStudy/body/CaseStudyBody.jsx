@@ -3,6 +3,7 @@ import ClientImg from "@/components/ClientImg"
 import { PortableText } from "@portabletext/react"
 import { bricolageGrotesque } from "@/app/fonts"
 import './caseStudyBody.css'
+import FullBleedRow from "./FullBleedRow"
 
 const blockComponents = {
   types: {
@@ -50,9 +51,7 @@ export default function CaseStudyBody({body}) {
     <section className="grid grid-cols-1 bg-white px-6 py-16">
       { body?.map((row, index) => 
         row.full_bleed ? (
-          <div key={index } className="grid grid-cols-1 ">
-            <PortableText value={row.full_bleed_row} components={blockComponents} />
-          </div>
+          <FullBleedRow />
         ) : (
           <div key={index}>
             <PortableText value={row.left_col} components={blockComponents} />

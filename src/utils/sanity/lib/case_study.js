@@ -367,7 +367,7 @@ export default {
               ],
             },
             {
-              name: "left_col",
+              name: "left_col_text",
               title: "Left Column",
               description: "The content that will appear in the left column of this row",
               hidden: ({ parent }) => parent?.full_bleed || parent?.img_side === 'left',
@@ -453,7 +453,7 @@ export default {
               ],
             },
             {
-              name: "right_col",
+              name: "right_col_text",
               title: "Right Column",
               description: "The content that will appear in the right column of this row",
               type: "array",
@@ -540,9 +540,28 @@ export default {
             },
           ],
           preview: {
-            prepare() {
+            select: {
+              title: 'row_title',
+              full_bleed_img: "full_bleed_row_img",
+              left_col_img: "left_col_img",
+              right_col_img: "right_col_img",
+              full_bleed: "full_bleed",
+              full_bleed_text_or_img: "full_bleed_text_or_img",
+              img_side: "img_side",
+            },
+            prepare(selection) {
+              const { title, full_bleed_img, left_col_img, right_col_img, } = selection;
+              let media;
+              if (full_bleed_img) {
+                media = full_bleed_img;
+              } else if (!full_bleed_img && img_side == "left") {
+                media = left_col_img;
+              } else if (!full_bleed_img && img_side == "right") {
+                media = right_col_img;
+              }
               return {
-                title: 'Row'
+                title: title ? title : 'Row',
+                media: media,
               }
             }
           }

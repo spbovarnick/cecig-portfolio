@@ -57,47 +57,42 @@ export default async function casStudy({ params }){
     "deliverables": scope[]->deliverable_name,
     body[]{
       full_bleed,
-      full_bleed_row[]{
+      full_bleed_text_or_img,
+      img_side,
+      full_bleed_row_img{
+        _type,
+        alt,
+        asset -> {
+          ...,
+          metadata
+        }
+      },
+      full_bleed_text[]{
         _type,
         ...,
-        _type == 'full_bleed_img' => {
-          ...,
-          alt,
-          asset->{
-            _id,
-            ...
-          }
-        },
         _type == "scope_step" => {
           ...,
           deliverable->
         },
       },
-      left_col[]{
+      left_col_img{
+        alt,
+        asset -> {
           ...,
-          _type == 'left_col_img' => {
-          ...,
-          alt,
-          asset->{
-            _id,
-            ...
-          }
-        },
+          metadata
+        }
+      },
+      left_col_text[]{
+        _type,
+        ...,
         _type == "scope_step" => {
           ...,
-          "name": deliverable->deliverable_name
+          deliverable->
         },
       },
-      right_col[]{
+      right_col_text[]{
+        _type,
         ...,
-        _type == 'right_col_img' => {
-          ...,
-          alt,
-          asset->{
-              _id,
-              ...
-          }
-        },
         _type == "scope_step" => {
           ...,
           deliverable->
