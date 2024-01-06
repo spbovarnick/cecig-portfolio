@@ -34,7 +34,7 @@ export default function AboutMe({ blurb, headshot }) {
     <>
       {headshot &&
         <div className="w-full h-auto lg:w-1/2 xl:w-2/5 lg:flex lg:justify-center lg:items-center">
-          <ClientImg img={headshot} />
+          <ClientImg fullHeight={true} objectFill={true} img={headshot} />
         </div>
       }
       <div 

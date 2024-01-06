@@ -14,7 +14,7 @@ export default function Into({ gif }){
       <div
         className="into-gif-container ml-4"
       >
-        <ClientImg img={gif} />
+        <ClientImg fullHeight={true} objectFill={true} img={gif} />
       </div>
     </div>
   )

@@ -42,6 +42,7 @@ export default async function casStudy({ params }){
       "type": team_member->member_type,
       count
     },
+    role,
     problem_principles{
       problem,
       principles,
@@ -106,7 +107,6 @@ export default async function casStudy({ params }){
   }`
 
   const caseStudy = await sanityFetch({query: query, qParams: {slug: caseStudyPage} })
-  
 
   return (
     <div>

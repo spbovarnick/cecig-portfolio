@@ -6,9 +6,9 @@ import './caseStudyBody.css'
 
 const blockComponents = {
   types: {
-    full_bleed_img: ({ value }) => <ClientImg img={value} />,
-    left_col_img: ({ value }) => <ClientImg img={value} />,
-    right_col_img: ({ value }) => <ClientImg img={value} />,
+    full_bleed_img: ({ value }) => <ClientImg fullHeight={true} objectFill={true} img={value} />,
+    left_col_img: ({ value }) => <ClientImg fullHeight={true} objectFill={true} img={value} />,
+    right_col_img: ({ value }) => <ClientImg fullHeight={true} objectFill={true} img={value} />,
     scope_step: ({ value }) => {
       return (
         <div className="flex items-center h-fit w-fit">

@@ -3,26 +3,14 @@ import { bricolageGrotesque } from "@/app/fonts"
 import ClientImg from "../ClientImg"
 
 export default function HeroHeader({caseStudy}) {
-  const { _id, project, client, year, img_url, slug, nda, timeline, skills, team, banner_image } = caseStudy
+  const { _id, project, client, year, img_url, slug, nda, timeline, skills, team, banner_image, role } = caseStudy
   
   
   const heroHeaderClasses = `${bricolageGrotesque.className} text-2xl text-[#9A9A9A] font-bold`
   const heroContentClasess = `text-xl font-bold`
 
   return (
-    <div className="relative h-fit lg:flex flex-row-reverse ">
-      <div className="relative w-screen h-auto lg:w-2/5 lg:h-full lg:w-auto">
-        <ClientImg img={banner_image} />
-        { nda &&
-          <Image 
-            src={'/sh_ sticker.png'}
-            alt="Hush sticker"
-            width={169}
-            height={169}
-            className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 lg:translate-x-0 lg:translate-y-0 lg:right-10 lg:top-[55px] lg:left-auto"
-          />
-        }
-      </div>
+    <div className="relative h-screen lg:grid lg:grid-cols-2 ">
       <div className="grid grid-cols-1 gap-y-8 px-6 pt-8 pb-20 lg:grid-cols-2">
         <div >
           <p className={heroHeaderClasses}>PROJECT</p>
@@ -59,6 +47,22 @@ export default function HeroHeader({caseStudy}) {
               ))}
             </ul>
           </div>
+        }
+        <div>
+          <p className={heroHeaderClasses}>ROLE</p>
+          <p className={heroContentClasess}>{role}</p>
+        </div>
+      </div>
+      <div className="relative w-screen h-auto lg:w-1/2 lg:h-full lg:w-auto">
+        <ClientImg objectFill={false} fullHeight={false} img={banner_image} />
+        {nda &&
+          <Image
+            src={'/sh_ sticker.png'}
+            alt="Hush sticker"
+            width={169}
+            height={169}
+            className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 lg:translate-x-0 lg:translate-y-0 lg:right-10 lg:top-[55px] lg:left-auto"
+          />
         }
       </div>
     </div>

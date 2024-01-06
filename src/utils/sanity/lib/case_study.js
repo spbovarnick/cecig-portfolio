@@ -1,4 +1,5 @@
 
+
 let yearNow = new Date().getFullYear()
 
 export default {
@@ -54,18 +55,7 @@ export default {
       title: "Client",
       name: "client",
       type: "string",
-      // hidden: ({ document }) => document?.nda,
       description: "If this project is under NDA, whoever you identify as the 'client' here will be used in place of the actual client name before a sentence explaining that the client name cannot be disclosed, eg: 'IDEO - This one is under NDA so has limited shareable information'",
-      // validation: (Rule) => Rule.custom((client, context) => {
-      //   if (!context.document.nda && !client) {
-      //     if (client) {
-      //       return true
-      //     } else {
-      //       return "Client name must be disclosed for non-NDA projects"
-      //     }
-      //   }
-      //   return true
-      // }).error('Client name must be disclosed for non-NDA projects'),
       validation: (Rule) => Rule.required(),
     },
     {
@@ -137,44 +127,26 @@ export default {
       ],
     },
     {
+      name: "role",
+      title: "Role",
+      description: "What was your role on this project?",
+      type: "string",
+      validation: (Rule) => Rule.required(),
+    },
+    {
       name: "problem_principles",
       title: "Problem & Principles",
       description: "What was the problem you were trying to solve? What were the guiding principles you used to solve it? (This will be used in the 'Problem & Principles' section of the case study page)",
       type: "object",
       fields: [
         {
-          name: "problem",
-          title: "Problem",
-          type: "array",
-          of: [
-            {
-              type: "block",
-              styles: [
-                { title: 'Normal', value: 'normal' }
-              ],
-            },
-          ],
-          validation: (Rule) => Rule.required(),
-        },
-        {
-          name: "principles",
-          title: "Principles",
-          type: "array",
-          of: [
-            {
-              type: "block",
-              styles: [
-                { title: 'Normal', value: 'normal' }
-              ],
-            },
-          ],
-          validation: (Rule) => Rule.required(),
-        },
-        {
           name: "pp_image",
           title: "Problem & Principles Image",
           type: "image",
           validation: (Rule) => Rule.required(),
+          options: {
+            hotspot: true,
+          },
           fields: [
             {
               name: 'alt',
@@ -184,6 +156,21 @@ export default {
               validation: (Rule) => Rule.required(),
             },
           ],
+        },
+        {
+          name: "problem",
+          title: "Problem",
+          type: "array",
+          of: [
+            {
+              type: "block",
+              styles: [
+                { title: 'Normal', value: 'normal' },
+                { title: "Heading", value: 'h3' },
+              ],
+            },
+          ],
+          validation: (Rule) => Rule.required(),
         },
       ],
     },
@@ -214,6 +201,12 @@ export default {
           icon: () => '↔',
           fields: [
             {
+              name: "row_title",
+              title: "Row Title",
+              type: "string",
+              description: "For your own organization in the CMS. Feel free to use this field to number rows or just give them semantic names"
+            },
+            {
               name: "full_bleed",
               title: "Full Bleed",
               type: "boolean",
@@ -222,16 +215,63 @@ export default {
               initialValue: false,
             },
             {
-              name: "full_bleed_row",
-              title: "Full Bleed Row",
+              name: "full_bleed_text_or_img",
+              title: "Text or Image",
+              type: "string",
+              description: "Should this full bleed row contain text or an image?",
               hidden: ({ parent }) => !parent?.full_bleed,
+              options: {
+                list: [
+                  { title: "Text", value: "text" },
+                  { title: "Image", value: "image" },
+                ],
+                layout: "radio",
+                direction: "vertical",
+              },
+            },
+            {
+              name: "img_side",
+              title: "Image Left or Right?",
+              type: "string",
+              description: "Should the image in this row be oriented to the left or right?",
+              hidden: ({ parent }) => parent?.full_bleed,
+              options: {
+                list: [
+                  { title: 'Left', value: 'left' },
+                  { title: 'Right', value: 'right' },
+                ],
+                layout: "radio",
+                direction: "vertical",
+              }
+            },
+            {
+              name: "full_bleed_row_img",
+              type: "image",
+              icon: () => '🖼️',
+              hidden: ({ parent }) => !parent?.full_bleed || parent?.full_bleed_text_or_img !== 'image',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alternative text',
+                  description: 'Important for SEO and accessiblity.',
+                  validation: (Rule) => Rule.required(),
+                },
+              ],
+            },
+            {
+              name: "full_bleed_text",
+              title: "Full Bleed Text",
+              hidden: ({ parent }) => !parent?.full_bleed || parent?.full_bleed_text_or_img !== 'text',
               icon: () => '👐',
               type: "array",
               of: [
                 {
                   type: "block",
                   styles: [
-                    { title: 'Normal', value: 'normal' },
                     { title: 'Full Bleed Huge', value: 'h1'},
                     { title: 'Full Bleed medium', value: 'h2'},
                   ],
@@ -254,23 +294,23 @@ export default {
                     ],
                   }
                 },
-                {
-                  name: "full_bleed_img",
-                  type: "image",
-                  icon: () => '🖼️',
-                  options: {
-                    hotspot: true,
-                  },
-                  fields: [
-                    {
-                      name: 'alt',
-                      type: 'string',
-                      title: 'Alternative text',
-                      description: 'Important for SEO and accessiblity.',
-                      validation: (Rule) => Rule.required(),
-                    },
-                  ],
-                },
+                // {
+                //   name: "full_bleed_img",
+                //   type: "image",
+                //   icon: () => '🖼️',
+                //   options: {
+                //     hotspot: true,
+                //   },
+                //   fields: [
+                //     {
+                //       name: 'alt',
+                //       type: 'string',
+                //       title: 'Alternative text',
+                //       description: 'Important for SEO and accessiblity.',
+                //       validation: (Rule) => Rule.required(),
+                //     },
+                //   ],
+                // },
                 {
                   name: "scope_step",
                   title: "Scope Deliverable",
@@ -308,10 +348,29 @@ export default {
               ],
             },
             {
+              name: "left_col_img",
+              title: "Left Column Image",
+              hidden: ({ parent }) => parent?.img_side !== 'left',
+              type: "image",
+              icon: () => '🖼️',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alternative text',
+                  description: 'Important for SEO and accessiblity.',
+                  validation: (Rule) => Rule.required(),
+                },
+              ],
+            },
+            {
               name: "left_col",
               title: "Left Column",
               description: "The content that will appear in the left column of this row",
-              hidden: ({ parent }) => parent?.full_bleed,
+              hidden: ({ parent }) => parent?.full_bleed || parent?.img_side === 'left',
               icon: () => '👈',
               type: "array",
               of: [
@@ -322,23 +381,23 @@ export default {
                     { title: "Heading", value: 'h3'},
                   ],
                 },
-                {
-                  name: "left_col_img",
-                  type: "image", 
-                  icon: () => '🖼️',
-                  options: {
-                    hotspot: true,
-                  },
-                  fields: [
-                    {
-                      name: 'alt',
-                      type: 'string',
-                      title: 'Alternative text',
-                      description: 'Important for SEO and accessiblity.',
-                      validation: (Rule) => Rule.required(),
-                    },
-                  ],
-                },
+                // {
+                //   name: "left_col_img",
+                //   type: "image", 
+                //   icon: () => '🖼️',
+                //   options: {
+                //     hotspot: true,
+                //   },
+                //   fields: [
+                //     {
+                //       name: 'alt',
+                //       type: 'string',
+                //       title: 'Alternative text',
+                //       description: 'Important for SEO and accessiblity.',
+                //       validation: (Rule) => Rule.required(),
+                //     },
+                //   ],
+                // },
                 {
                   name: "scope_step",
                   title: "Scope Deliverable",
@@ -376,11 +435,29 @@ export default {
               ],
             },
             {
+              name: "right_col_img",
+              type: "image",
+              icon: () => '🖼️',
+              hidden: ({ parent }) => parent?.img_side !== 'right',
+              options: {
+                hotspot: true,
+              },
+              fields: [
+                {
+                  name: 'alt',
+                  type: 'string',
+                  title: 'Alternative text',
+                  description: 'Important for SEO and accessiblity.',
+                  validation: (Rule) => Rule.required(),
+                },
+              ],
+            },
+            {
               name: "right_col",
               title: "Right Column",
               description: "The content that will appear in the right column of this row",
               type: "array",
-              hidden: ({ parent }) => parent?.full_bleed,
+              hidden: ({ parent }) => parent?.full_bleed || parent?.img_side === 'right',
               icon: () => '👈',
               of: [
                 {
@@ -408,23 +485,23 @@ export default {
                     ],
                   } 
                 },
-                {
-                  name: "right_col_img",
-                  type: "image", 
-                  icon: () => '🖼️',
-                  options: {
-                    hotspot: true,
-                  },
-                  fields: [
-                    {
-                      name: 'alt',
-                      type: 'string',
-                      title: 'Alternative text',
-                      description: 'Important for SEO and accessiblity.',
-                      validation: (Rule) => Rule.required(),
-                    },
-                  ],
-                },
+                // {
+                //   name: "right_col_img",
+                //   type: "image", 
+                //   icon: () => '🖼️',
+                //   options: {
+                //     hotspot: true,
+                //   },
+                //   fields: [
+                //     {
+                //       name: 'alt',
+                //       type: 'string',
+                //       title: 'Alternative text',
+                //       description: 'Important for SEO and accessiblity.',
+                //       validation: (Rule) => Rule.required(),
+                //     },
+                //   ],
+                // },
                 {
                   name: "scope_step",
                   title: "Scope Deliverable",
