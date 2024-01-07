@@ -1,9 +1,11 @@
+// import "server-only"
 import { sanityFetch } from "@/utils/api/sanityFetch"
 import { sanityClient } from "@/utils/sanity/lib/client"
 import HeroHeader from "@/components/caseStudy/HeroHeader"
 import ProblemPrinciples from "@/components/caseStudy/ProblemPrinciples"
 import Scope from "@/components/caseStudy/Scope"
 import CaseStudyBody from "@/components/caseStudy/body/CaseStudyBody"
+import { redirect } from "next/navigation"
 
 export async function generateStaticParams() {
   try {
@@ -116,13 +118,13 @@ export default async function casStudy({ params }){
       { caseStudy && 
         <HeroHeader caseStudy={caseStudy} />
       }
-      { caseStudy.problem_principles && 
+      { caseStudy?.problem_principles && 
         <ProblemPrinciples problemPrinciples={caseStudy.problem_principles} />
       }
-      { caseStudy.deliverables &&
+      { caseStudy?.deliverables &&
         <Scope deliverables={caseStudy.deliverables} />
       }
-      { caseStudy.slug &&
+      { caseStudy?.slug &&
         <CaseStudyBody body={caseStudy.body} />
         }
     </div>

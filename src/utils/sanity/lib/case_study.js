@@ -21,6 +21,20 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
+      title: "Password",
+      name: "password",
+      type: "string",
+      description: "If this project is under NDA, enter the access password here",
+      hidden: ({ parent }) => !parent?.nda,
+      // validation: Rule => Rule.custom((password, context))
+      validation: (Rule) => Rule.custom((value, context) => {
+        if (context.parent?.nda && !value) {
+          return 'Password is required for projects under NDA';
+        }
+        return true;
+      }),
+    },
+    {
       title: "Banner Image",
       name: "banner_image",
       type: "image",

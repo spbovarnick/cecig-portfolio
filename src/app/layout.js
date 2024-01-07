@@ -8,13 +8,15 @@ export const metadata = {
   description: 'UX/UI Designer',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, pwd }) {
+  
   return (
     <html lang="en">
       <body className={`${manrope.className} relative pb-[220px] md:pb-[119px] min-h-screen`}>
       <Nav />
       <div >
         {children}
+        {pwd}
       </div>
       <Footer />
       </body>

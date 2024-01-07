@@ -10,6 +10,7 @@ export default async function Home() {
   const query = `*[_type in ['case_study', 'writing']][0]{
     "workData": *[_type == 'case_study'] {
       _id,
+      nda,
       project,
       client,
       'slug': slug.current,    
@@ -41,6 +42,7 @@ export default async function Home() {
             slug={caseStudy.slug} 
             project={caseStudy.project}
             client={caseStudy.client}
+            nda={caseStudy.nda}
           />
         ))}
       </section>
