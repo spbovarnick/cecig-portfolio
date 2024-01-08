@@ -1,4 +1,5 @@
 let yearNow = new Date().getFullYear()
+import { PasswordInput } from "../components/PasswordInput";
 
 export default {
   name: 'case_study',
@@ -33,6 +34,9 @@ export default {
         }
         return true;
       }),
+      components: {
+        input: PasswordInput,
+      }
     },
     {
       title: "Banner Image",

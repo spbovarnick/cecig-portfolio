@@ -5,7 +5,8 @@ import HeroHeader from "@/components/caseStudy/HeroHeader"
 import ProblemPrinciples from "@/components/caseStudy/ProblemPrinciples"
 import Scope from "@/components/caseStudy/Scope"
 import CaseStudyBody from "@/components/caseStudy/body/CaseStudyBody"
-import { redirect } from "next/navigation"
+import { cookies } from 'next/headers'
+import PwdPrompt from "@/components/auth/PwdPrompt"
 
 export async function generateStaticParams() {
   try {
@@ -22,6 +23,9 @@ export async function generateStaticParams() {
 }
 
 export default async function casStudy({ params }){
+  const cookiesStore = cookies();
+  const accessCookies = cookiesStore.get(process.env.PASSWORD_COOKIE_NAME);
+  const isAuthorized = !!accessCookies?.value
   const { caseStudyPage } = params
   
   const query = `*[_type == "case_study" && slug.current == $slug][0]{
@@ -110,9 +114,12 @@ export default async function casStudy({ params }){
       },
     }
   }`
+  
 
   const caseStudy = await sanityFetch({query: query, qParams: {slug: caseStudyPage} })
-
+  if (!isAuthorized) {
+    return <PwdPrompt slug={caseStudy.slug} />
+  }
   return (
     <div>
       { caseStudy && 

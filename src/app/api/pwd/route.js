@@ -1,5 +1,6 @@
 import {serialize} from "cookie";
 import { sanityFetch } from "@/utils/api/sanityFetch";
+import bcrypt from "bcryptjs";
 
 export async function POST(request, params) {
   const query = `*[_type == "case_study"]{
@@ -18,8 +19,9 @@ export async function POST(request, params) {
     httpOnly: true,
     path: `/${slug}`,
   });
+  console.log(cookie)
 
-  if (enteredPwd !== pwd) {
+  if (!bcrypt.compareSync(enteredPwd, pwd)) {
     return new Response("Incorrect password", { status: 401 });
   }
   

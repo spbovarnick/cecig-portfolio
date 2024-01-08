@@ -1,26 +1,31 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function ({ slug }) {
+export default function PwdPrompt({ slug }) {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
-    const onSubmit = async (e) => {
-      e.prevetDefault();
-      setLoading(true);
-      const request = await fetch("/api/pwd", {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch("/api/pwd", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password, slug }),
+        body: JSON.stringify({ "password": password, "slug": slug }),
       });
-    }
-
-    if (request.status !== 200) {
-      return setPasswordError(true), setLoading(false);
-    } else {
-      window.location.reload();
+      if (response.status !== 200) {
+        setPasswordError(true), setLoading(false);
+      } else {
+        window.location.reload();
+      }
+    } catch (err) {
+      console.log(err, "Error submitting auth password");
+    } finally {
+      setLoading(false);
     }
   }
 
