@@ -57,7 +57,7 @@ export default function HeroHeader({caseStudy}) {
         <ClientImg objectCover={false} fullHeight={false} img={banner_image} />
         {nda &&
           <Image
-            src={'/sh_ sticker.png'}
+            src={'/sh_sticker.png'}
             alt="Hush sticker"
             width={169}
             height={169}

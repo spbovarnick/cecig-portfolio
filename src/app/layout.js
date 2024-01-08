@@ -8,7 +8,7 @@ export const metadata = {
   description: 'UX/UI Designer',
 }
 
-export default function RootLayout({ children, pwd }) {
+export default function RootLayout({ children }) {
   
   return (
     <html lang="en">
@@ -16,7 +16,6 @@ export default function RootLayout({ children, pwd }) {
       <Nav />
       <div >
         {children}
-        {pwd}
       </div>
       <Footer />
       </body>
