@@ -19,7 +19,6 @@ export async function POST(request, params) {
     httpOnly: true,
     path: `/${slug}`,
   });
-  console.log(cookie)
 
   if (!bcrypt.compareSync(enteredPwd, pwd)) {
     return new Response("Incorrect password", { status: 401 });

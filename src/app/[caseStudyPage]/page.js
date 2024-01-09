@@ -1,4 +1,3 @@
-// import "server-only"
 import { sanityFetch } from "@/utils/api/sanityFetch"
 import { sanityClient } from "@/utils/sanity/lib/client"
 import HeroHeader from "@/components/caseStudy/HeroHeader"
@@ -11,11 +10,12 @@ import PwdPrompt from "@/components/auth/PwdPrompt"
 export async function generateStaticParams() {
   try {
     const query = `*[_type == "case_study"]{
-      'caseStudyPage': slug.current,
+      'slug': slug.current,
+      nda,
     }`
     const slugs = await sanityClient.fetch(query)
     return slugs.map(slug => ({
-      params: { slug: slug.slug }
+       slug: slug.slug
     }))
   } catch (error) {
     console.error("Error generating static params from Sanity:", error)
@@ -117,7 +117,7 @@ export default async function casStudy({ params }){
   
 
   const caseStudy = await sanityFetch({query: query, qParams: {slug: caseStudyPage} })
-  if (!isAuthorized) {
+  if (!isAuthorized && caseStudy?.nda) {
     return <PwdPrompt slug={caseStudy.slug} />
   }
   return (

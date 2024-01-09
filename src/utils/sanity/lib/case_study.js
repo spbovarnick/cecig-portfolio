@@ -549,6 +549,38 @@ export default {
           }
         },
       ],
-    }
+    },
+    {
+      name: "inspo",
+      title: "Inspiration",
+      description: "A list of tiles blurbing inspo for this project",
+      type: "array",
+      validation: (Rule) => Rule.required(),
+      of: [
+        {
+          name: 'inspo_icon',
+          title: 'Icon',
+          description: 'The icon that will appear in the tile',
+          type: 'image',
+          validation: (Rule) => Rule.required(),
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              description: 'Important for SEO and accessiblity.',
+              validation: (Rule) => Rule.required(),
+            },
+          ],
+        },
+        {
+          name: 'inspo_text',
+          title: 'Blurb',
+          description: 'The text that will appear in the tile',
+          type: 'string',
+          validation: (Rule) => Rule.required(),
+        },
+      ]
+    },
   ],
 }

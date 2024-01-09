@@ -1,6 +1,8 @@
 "use client";
+import { bricolageGrotesque } from "@/app/fonts";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import './pwd-prompt.css';
 
 export default function PwdPrompt({ slug }) {
   const [password, setPassword] = useState("");
@@ -30,15 +32,27 @@ export default function PwdPrompt({ slug }) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="password">Password</label>
+    <div className="flex justify-center items-center mt-20 lg:mt-45">
+      <form 
+        onSubmit={handleSubmit}
+        className="w-[362px] flex flex-col gap-6 items-center"
+      >
+        <div className={`${bricolageGrotesque.className} font-bold font-2xl`}>This case study is locked.</div>
         <input 
           type="password"
           id="password" 
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
+          className="w-full p-4 h-[54px]"
+          placeholder="Enter password"
         />
+        <button 
+          type="submit" 
+          className="w-full text-white bg-black p-2 h-[54px] hover:text-black hover:bg-white transition-all duration-300 ease-in-out border border-black"
+          
+        >
+          Submit
+        </button>
       </form>
     </div>
   )
