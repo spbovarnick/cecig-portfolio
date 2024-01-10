@@ -24,19 +24,21 @@ export default async function Info(){
   const info = await sanityFetch({query: query, qParams: {}})
 
   return (
-    <section className="px-6 pt-4 lg:px-10 grid grid-cols-1 gap-16 lg:gap-24">
-      <section 
-        id="about-section"
-        className="flex flex-col lg:flex-row"
-      >
-      
-        { info?.about_blurb && 
-          <AboutMe blurb={info.about_blurb} headshot={info.headshot} />
-        }
-      </section>
+    <section className="grid grid-cols-1 gap-16">
+      <div className="csb:flex csb:justify-center">
+        <section 
+          id="about-section"
+          className="flex flex-col csb:grid csb:grid-cols-2 csb:h-720 csb:max-w-[1280px]"
+        >
+        
+          { info?.about_blurb && 
+            <AboutMe blurb={info.about_blurb} headshot={info.headshot} />
+          }
+        </section>
+      </div>
       <section
         id="exp-skill-ed-section"
-        className="w-full"
+        className="w-full px-6 "
       >
         { info?.experience && 
           <Experience 
@@ -48,7 +50,7 @@ export default async function Info(){
       </section>
       <section 
         id="into-section"
-        className="mb-16 lg:mb-24"
+        className="mb-16 "
       >
         { info?.into_gif && 
           <Into gif={info.into_gif} />

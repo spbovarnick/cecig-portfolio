@@ -33,9 +33,9 @@ export default function AboutMe({ blurb, headshot }) {
   return (
     <>
       {headshot &&
-        <div className="w-full h-auto lg:w-1/2 xl:w-2/5 lg:flex lg:justify-center lg:items-center">
+        <div className="w-full h-full ">
           <ClientImg 
-            classes={"w-full h-full object-cover"}
+            classes={"w-full h-auto csb:h-full csb:w-auto object-contain md:max-[1089px]:object-cover"}
             sizes={"(max-width: 1024px) 100vw, 50vw"}
             img={headshot} 
           />
@@ -43,10 +43,10 @@ export default function AboutMe({ blurb, headshot }) {
       }
       <div 
         id="info-blurb"
-        className="w-full lg:w-1/2 xl:w-3/5 lg:flex lg:justify-center"
+        className="px-6 csb:px-16 csb:flex csb:items-center"
       >
         <div 
-          className="lg:w-2/3 xl:w-2/3"
+          className="w-full h-fit"
         >
           <div className={`${bricolageGrotesque.className} text-2xl text-black font-bold leading-none mt-8 w-full xl:mt-0`} >ABOUT ME</div>
           <PortableText value={blurb} components={blockComponents} />
