@@ -14,7 +14,7 @@ export default function HeroHeader({caseStudy}) {
       <div className="relative w-full lg:order-last">
         <ClientImg 
           sizes={"(max-width: 1024px) 100vw, 50vw"}
-          classes={"w-full h-auto object-contain"} 
+          classes={"w-full h-auto csb:h-full object-contain csb:object-cover"} 
           img={banner_image} 
         />
         {nda &&

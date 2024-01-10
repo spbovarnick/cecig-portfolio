@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       spacing: {
         '718': '718px',
+        '720': '720px',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

@@ -7,7 +7,7 @@ export default function FullBleedRow({ img, text, blockComponents, textOrImg }){
   
   return (
     textOrImg === "image" ? 
-      <div className="w-full h-fit">
+      <div className="w-full h-auto flex items-center csb:min-h-720">
         { img && 
           <ClientImg 
             sizes={"(max-width: 1024px) 100vw, 50vw"}

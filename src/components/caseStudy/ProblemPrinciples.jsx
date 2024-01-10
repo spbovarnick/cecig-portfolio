@@ -33,7 +33,7 @@ const blockComponents = {
 export default function ProblemPrinciples({ problemPrinciples }) {
 
   return (
-    <section className="csb:grid csb:grid-cols-2 bg-white csb:h-718">
+    <section className="csb:grid csb:grid-cols-2 bg-white csb:h-720">
       <div className="w-full h-full">
         <ClientImg 
           classes={"w-full h-full object-contain"}
