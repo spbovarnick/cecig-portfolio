@@ -9,6 +9,8 @@ import CaseStudyBody from "@/components/caseStudy/body/CaseStudyBody"
 import PwdPrompt from "@/components/auth/PwdPrompt"
 import Inspo from "@/components/caseStudy/body/Inspo"
 
+export const dynamic = 'force-dynamic';
+
 export async function generateStaticParams() {
   try {
     const query = `*[_type == "case_study"]{
