@@ -3,7 +3,7 @@ import { bricolageGrotesque } from "@/app/fonts"
 import ClientImg from "../ClientImg"
 
 export default function HeroHeader({caseStudy}) {
-  const { _id, project, client, year, img_url, slug, nda, timeline, skills, team, banner_image, role } = caseStudy
+  const { _id, project, client, year, nda, timeline, skills, team, banner_image, role } = caseStudy
   
   
   const heroHeaderClasses = `${bricolageGrotesque.className} text-2xl text-[#9A9A9A] font-bold`

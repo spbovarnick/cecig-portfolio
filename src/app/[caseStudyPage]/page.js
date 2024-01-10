@@ -116,13 +116,15 @@ export default async function casStudy({ params }){
       },
     },
     inspo[]{
-      key,
+      _key,
       inspo_text,
       blurb,
-        asset -> {
-          ...,
-          metadata,
-        }
+      inspo_link,
+      alt,
+      asset -> {
+        ...,
+        metadata,
+      }
     },
   }`
   

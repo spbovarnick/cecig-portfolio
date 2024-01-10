@@ -38,13 +38,11 @@ export default async function LandingPageTop({  }) {
   let landingBlurb;
   try {
     const data = await sanityFetch({ query: query, qParams: {} });
-    // console.log(data)
     ({landingBlurb}  = data);
   } catch (error) {
     console.log("Error fetching landing page blurb data from Sanity:", error)
     return null
   }
-  console.log(landingBlurb)
 
   return (
     <section className="h-fit min-h-screen relative">

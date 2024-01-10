@@ -578,6 +578,13 @@ export default {
               type: 'string',
               validation: (Rule) => Rule.required(),
             },
+            {
+              name: 'inspo_link',
+              title: 'Link',
+              description: 'The link that will be followed when the tile is clicked',
+              type: 'url',
+              validation: (Rule) => Rule.required(),
+            }
           ],
         },
       ]
