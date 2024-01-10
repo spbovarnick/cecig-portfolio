@@ -41,6 +41,7 @@ export default async function casStudy({ params }){
     'img_url': banner_image.asset -> url,
     banner_image{
       alt,
+      crop,
       asset -> {
       ...,
       metadata
@@ -58,6 +59,7 @@ export default async function casStudy({ params }){
       principles,
       pp_image{
         alt,
+        crop,
         asset -> {
           ...,
           metadata,
@@ -73,6 +75,7 @@ export default async function casStudy({ params }){
       full_bleed_row_img{
         _type,
         alt,
+        crop,
         asset -> {
           ...,
           metadata
@@ -88,6 +91,7 @@ export default async function casStudy({ params }){
       },
       left_col_img{
         alt,
+        crop,
         asset -> {
           ...,
           metadata
@@ -95,6 +99,7 @@ export default async function casStudy({ params }){
       },
       right_col_img{
         alt,
+        crop,
         asset -> {
           ...,
           metadata

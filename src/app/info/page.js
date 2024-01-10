@@ -8,6 +8,7 @@ export default async function Info(){
     ...,
     headshot{
       alt,
+      crop,
       asset -> {
       ...,
       metadata

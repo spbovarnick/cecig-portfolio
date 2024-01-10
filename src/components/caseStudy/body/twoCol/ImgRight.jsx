@@ -10,10 +10,10 @@ export default function ImgRight({ text, img, blockComponents }){
           {text && <PortableText value={text} components={blockComponents} />}
         </div>
       </div>
-      <div className="w-full h-full">
+      <div className="w-full h-full csb:flex csb:justify-start">
         {img && 
           <ClientImg 
-          classes={"w-full h-full object-contain"}
+          classes={"w-full h-full csb:w-auto object-contain"}
             sizes={"(max-width: 1024px) 100vw, 50vw"}
             img={img} 
           />
