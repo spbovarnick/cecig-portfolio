@@ -2,7 +2,7 @@ import {serialize} from "cookie";
 import { sanityFetch } from "@/utils/api/sanityFetch";
 import bcrypt from "bcryptjs";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = 'force-static';
 
 export async function POST(request, params) {
   const query = `*[_type == "case_study"]{
