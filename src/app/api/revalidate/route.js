@@ -5,7 +5,7 @@ import { parseBody } from "next-sanity/webhook";
 export async function POST(req) {
   try {
     const { body, isValidSignature } = await parseBody(
-      req, process.env.NEXT_PUBLIC_SANITY_HOOK_SECRET
+      req, "81wanoK7O5ISRtAKx8GXTNVqFfCHR8hB"
     );
 
     if (!isValidSignature) {
