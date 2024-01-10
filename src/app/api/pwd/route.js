@@ -1,3 +1,4 @@
+import "server-only"
 import {serialize} from "cookie";
 import { sanityFetch } from "@/utils/api/sanityFetch";
 import bcrypt from "bcryptjs";
