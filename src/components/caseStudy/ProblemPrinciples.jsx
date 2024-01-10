@@ -33,16 +33,16 @@ const blockComponents = {
 export default function ProblemPrinciples({ problemPrinciples }) {
 
   return (
-    <section className="lg:grid lg:grid-cols-2 bg-white lg:h-718">
+    <section className="csb:grid csb:grid-cols-2 bg-white csb:h-718">
       <div className="w-full h-full">
         <ClientImg 
-          classes={"w-full h-full object-cover"}
+          classes={"w-full h-full object-contain"}
           sizes={"(max-width: 1024px) 100vw, 50vw"}
           img={problemPrinciples.pp_image} 
         />
       </div>
       <div className="flex items-center justify-center">
-        <div className="w-1/2 py-16">
+        <div className="px-6 py-16 csb:px-24">
           <PortableText value={problemPrinciples.problem} components={blockComponents} />
         </div>
       </div>

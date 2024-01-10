@@ -47,7 +47,7 @@ const blockComponents = {
 export default function CaseStudyBody({body}) {
   
   return (
-    <section className="grid grid-cols-1 bg-white">
+    <section id="csb" className="grid grid-cols-1 bg-white">
       { body?.map((row, index) => 
         row.full_bleed ? (
           <FullBleedRow
