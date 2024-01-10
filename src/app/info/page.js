@@ -23,8 +23,6 @@ export default async function Info(){
   }`
   const info = await sanityFetch({query: query, qParams: {}})
 
-  console.log(info)
-
   return (
     <section className="px-6 pt-4 lg:px-10 grid grid-cols-1 gap-16 lg:gap-24">
       <section 
@@ -32,7 +30,7 @@ export default async function Info(){
         className="flex flex-col lg:flex-row"
       >
       
-        { info.about_blurb && 
+        { info?.about_blurb && 
           <AboutMe blurb={info.about_blurb} headshot={info.headshot} />
         }
       </section>
@@ -40,7 +38,7 @@ export default async function Info(){
         id="exp-skill-ed-section"
         className="w-full"
       >
-        { info.experience && 
+        { info?.experience && 
           <Experience 
             experiences={info.experience} 
             skills={info.skills} 
@@ -52,7 +50,7 @@ export default async function Info(){
         id="into-section"
         className="mb-16 lg:mb-24"
       >
-        { info.into_gif && 
+        { info?.into_gif && 
           <Into gif={info.into_gif} />
         }
       </section>
