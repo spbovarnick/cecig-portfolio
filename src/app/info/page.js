@@ -1,6 +1,4 @@
-import { bricolageGrotesque } from "../fonts"
 import { sanityFetch } from "@/utils/api/sanityFetch"
-import ClientImg from "@/components/ClientImg"
 import AboutMe from "@/components/info/aboutMe/AboutMe"
 import Experience from "@/components/info/expSkillEd/Experience"
 import Into from "@/components/info/imInto/Into"
@@ -24,6 +22,8 @@ export default async function Info(){
     }
   }`
   const info = await sanityFetch({query: query, qParams: {}})
+
+  console.log(info)
 
   return (
     <section className="px-6 pt-4 lg:px-10 grid grid-cols-1 gap-16 lg:gap-24">
