@@ -15,7 +15,7 @@ export async function POST(request, params) {
     const slug = data.slug;
     const foundCase = cases.find(e => e.slug === slug)
     const pwd = foundCase.password;
-    const cookie = serialize(process.env.PASSWORD_COOKIE_NAME, "true", {
+    const cookie = serialize("81wanoK7O5ISRtAKx8GXTNVqFfCHR8hB", "true", {
       httpOnly: true,
       path: `/${slug}`,
     });
