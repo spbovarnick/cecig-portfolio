@@ -1,11 +1,13 @@
 import { sanityFetch } from "@/utils/api/sanityFetch"
 import { sanityClient } from "@/utils/sanity/lib/client"
+import { cookies } from 'next/headers'
+import './case-study-page.css'
 import HeroHeader from "@/components/caseStudy/HeroHeader"
 import ProblemPrinciples from "@/components/caseStudy/ProblemPrinciples"
 import Scope from "@/components/caseStudy/Scope"
 import CaseStudyBody from "@/components/caseStudy/body/CaseStudyBody"
-import { cookies } from 'next/headers'
 import PwdPrompt from "@/components/auth/PwdPrompt"
+import Inspo from "@/components/caseStudy/body/Inspo"
 
 export async function generateStaticParams() {
   try {
@@ -112,7 +114,16 @@ export default async function casStudy({ params }){
           "name": deliverable->deliverable_name
         },
       },
-    }
+    },
+    inspo[]{
+      key,
+      inspo_text,
+      blurb,
+        asset -> {
+          ...,
+          metadata,
+        }
+    },
   }`
   
 
@@ -131,9 +142,12 @@ export default async function casStudy({ params }){
       { caseStudy?.deliverables &&
         <Scope deliverables={caseStudy.deliverables} />
       }
-      { caseStudy?.slug &&
+      { caseStudy?.body &&
         <CaseStudyBody body={caseStudy.body} />
-        }
+      }
+      { caseStudy?.inspo && 
+        <Inspo inspo={caseStudy.inspo} />
+      }
     </div>
   )
 }

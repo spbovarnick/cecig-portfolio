@@ -6,9 +6,6 @@ import TwoColRow from "./TwoColRow"
 
 const blockComponents = {
   types: {
-    // full_bleed_img: ({ value }) => <ClientImg fullHeight={true} objectCover={true} img={value} />,
-    // left_col_img: ({ value }) => <ClientImg fullHeight={true} objectCover={true} img={value} />,
-    // right_col_img: ({ value }) => <ClientImg fullHeight={true} objectCover={true} img={value} />,
     scope_step: ({ value }) => {
       return (
         <div className="flex items-center h-fit w-fit mb-6">
@@ -40,9 +37,10 @@ const blockComponents = {
     bullet: ({ children }) => <li className="text-md">{children}</li>
   },
   block: {
-    normal: ({ children }) => <p className="font-semibold">{children}</p>,
+    normal: ({ children }) => <p className="font-semibold mb-6">{children}</p>,
     h1: ({ children }) => <h1 className="font-bold text-5xl">{children}</h1>,
     h2: ({ children }) => <h1 className="font-bold text-[32px]">{children}</h1>,
+    h3: ({ children }) => <h3 className="font-bold text-[32px] mb-6">{children}</h3>,
   }
 }
 

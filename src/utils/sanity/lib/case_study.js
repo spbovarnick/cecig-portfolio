@@ -377,7 +377,7 @@ export default {
                   type: "block",
                   styles: [
                     { title: 'Normal', value: 'normal' },
-                    { title: "Heading", value: 'h2'},
+                    { title: "Heading", value: 'h3'},
                   ],
                 },
                 {
@@ -446,7 +446,7 @@ export default {
                   type: "block",
                   styles: [
                     { title: 'Normal', value: 'normal' },
-                    { title: "Heading", value: 'h2' },
+                    { title: "Heading", value: 'h3' },
                   ],
                   marks: {
                     annotations: [
@@ -555,7 +555,7 @@ export default {
       title: "Inspiration",
       description: "A list of tiles blurbing inspo for this project",
       type: "array",
-      validation: (Rule) => Rule.required(),
+      // validation: (Rule) => Rule.required(),
       of: [
         {
           name: 'inspo_icon',
@@ -571,14 +571,14 @@ export default {
               description: 'Important for SEO and accessiblity.',
               validation: (Rule) => Rule.required(),
             },
+            {
+              name: 'inspo_text',
+              title: 'Blurb',
+              description: 'The text that will appear in the tile',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
           ],
-        },
-        {
-          name: 'inspo_text',
-          title: 'Blurb',
-          description: 'The text that will appear in the tile',
-          type: 'string',
-          validation: (Rule) => Rule.required(),
         },
       ]
     },

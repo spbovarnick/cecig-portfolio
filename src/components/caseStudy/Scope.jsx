@@ -3,12 +3,12 @@ export default function Scope({ deliverables }) {
 
   return (
     <section className="bg-[#E9E4E0] px-6 py-16">
-      <p className={`${bricolageGrotesque.className} text-[32px] text-black font-bold mb-6`}>SCOPE OF WORK</p>
-      <div className="grid grid-cols-1 gap-8 lg:justify-between lg:flex lg:flex-wrap">
+      <p id="scope-title" className={`${bricolageGrotesque.className} text-[32px] text-black font-bold mb-6`}>SCOPE OF WORK</p>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 ">
         { deliverables.map((deliverable, i ) => (
-          <div key={i} className="flex items-center h-fit w-fit lg:mr-6">
+          <div key={i} className="flex items-center min-w-fit">
             <div className={`${bricolageGrotesque.className} text-5xl text-black font-bold w-[76px] h-[76px] p-2 flex items-center justify-center bg-[#75FA4D] rounded-full mr-6`}>{i+1}</div>
-            <div className="font-semibold">{deliverable}</div>
+            <div className="font-semibold w-fit">{deliverable}</div>
           </div>
         ))}
       </div>

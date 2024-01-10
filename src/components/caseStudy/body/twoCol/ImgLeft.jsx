@@ -7,7 +7,13 @@ export default function ImgLeft({ img, text, blockComponents }){
     <>
       <div>
         <div className="w-full h-full">
-          {img && <ClientImg fullHeight={true} objectCover={true} img={img} />}
+          {img && 
+            <ClientImg 
+              classes={"w-full h-full object-cover"}
+              sizes={"(max-width: 1024px) 100vw, 50vw"}
+              img={img} 
+            />
+          }
         </div>
       </div>
       <div className="p-24 flex justify-center items-center">

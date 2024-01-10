@@ -1,0 +1,3 @@
+p:last-of-type:not(#scope-title) {
+  margin-bottom: 0;
+}

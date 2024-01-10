@@ -34,7 +34,7 @@ export default async function Home() {
   return (
     <div className="max-w-screen">
       <LandingPageTop />
-      <section id="work" className="relative border-t-2 border-black h-screen mt-[68px] scroll-mt-20 md:mt-28 md:scroll-mt-32">
+      <section id="work" className="relative border-t-2 border-black h-min mb-[183px] scroll-mt-20 md:mt-28 md:scroll-mt-32">
         <div id="work-title" className="absolute top-0 left-[4rem] md:left-[5.5rem] -translate-y-2/4 text-xl font-extrabold tracking-widest px-4">WORK</div>
         {  workData.map((caseStudy) => (
           <WorkUI 
@@ -46,7 +46,7 @@ export default async function Home() {
           />
         ))}
       </section>
-      <section id="writing" className="relative border-t-2 border-black h-screen">
+      <section id="writing" className="relative border-t-2 border-black h-min">
         <div id="writing-title" className="absolute top-0 left-[4rem] md:left-[5.5rem] -translate-y-2/4 text-xl font-extrabold tracking-widest px-4">WRITING</div>
         {  writingData.map((writing) => (
           <WritingUI 

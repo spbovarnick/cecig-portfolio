@@ -6,9 +6,9 @@ import './nav.css'
 export default function Nav() {
 
   return (
-    <div id="nav" className="box-border w-full h-[109px] sticky top-0 z-50">
+    <div id="nav" className="box-border w-full h-[138px] lg:h-[109px] sticky top-0 z-50">
       <Link 
-        className="absolute left-10 top-[22px]" 
+        className="hidden md:block absolute left-10 top-[22px]" 
         href='/'
       >
         <svg width="64" id='nav-logo' height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,7 +20,7 @@ export default function Nav() {
         </svg>
 
       </Link>
-      <div id="nav-links" className={`${bricolageGrotesque.className} absolute font-bold text-xl md:text-2xl flex gap-x-[21px] md:gap-x-[42px] pt-[59px] pb-[31px] md:py-10 -translate-x-2/4 left-2/4`}>
+      <div id="nav-links" className={`${bricolageGrotesque.className} absolute font-bold text-xl lg:text-2xl flex gap-x-[21px] lg:gap-x-[42px] items-center h-full lg:py-10 -translate-x-2/4 left-2/4`}>
         <Link 
           className="nav-link z-50 " 
           href="/#work"
