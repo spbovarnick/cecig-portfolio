@@ -7,7 +7,7 @@ import LandingPageTop from "@/components/landingPageTop/LandingPageTop"
 
 
 export default async function Home() {
-  const query = `*[_type in ['case_study', 'writing',]][0]{
+  const query = `*[_type in ['case_study', 'writing']][0]{
     "workData": *[_type == 'case_study'] {
       _id,
       nda,
