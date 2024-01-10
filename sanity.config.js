@@ -37,12 +37,20 @@ export default defineConfig({
                   .schemaType('info')
                   .documentId('info')
               ),
-
-              S.documentTypeListItem('case_study').title('Case Study'),
-              S.documentTypeListItem('writing').title('Writing'),
-              S.documentTypeListItem('skill').title('Skill'),
-              S.documentTypeListItem('team_member').title('Team Member'),
-              S.documentTypeListItem('deliverable').title('Deliverable'),
+            S.listItem()
+              .title('Landing Blurb')
+              .id('landing_blurb')
+              .icon(() => '🏠')
+              .child(
+                S.document()
+                  .schemaType('landing_blurb')
+                  .documentId('landing_blurb')
+              ),
+            S.documentTypeListItem('case_study').title('Case Study'),
+            S.documentTypeListItem('writing').title('Writing'),
+            S.documentTypeListItem('skill').title('Skill'),
+            S.documentTypeListItem('team_member').title('Team Member'),
+            S.documentTypeListItem('deliverable').title('Deliverable'),
           ])
     }),
     // Vision is a tool that lets you query your content with GROQ in the studio
