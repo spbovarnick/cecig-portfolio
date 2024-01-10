@@ -14,7 +14,7 @@ export default function PwdPrompt({ slug }) {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await fetch("https://cecig-portfolio.vercel.app/api/pwd", {
+      const response = await fetch("/api/pwd", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ "password": password, "slug": slug }),
