@@ -39,7 +39,7 @@ export default async function Info(){
       </div>
       <section
         id="exp-skill-ed-section"
-        className="w-full px-6 "
+        className="w-full px-6 csb:px-10"
       >
         { info?.experience && 
           <Experience 

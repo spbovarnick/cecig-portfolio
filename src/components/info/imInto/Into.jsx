@@ -5,7 +5,7 @@ import './into.css'
 export default function Into({ gif }){
 
   return (
-    <div className="lg:flex w-full justify-center items-end">
+    <div className="csb:flex w-full justify-start items-end px-6 csb:px-10">
       <div 
         className={`${bricolageGrotesque.className} font-extrabold text-8xl tracking-[-9.6px] mr-4`}
       >
