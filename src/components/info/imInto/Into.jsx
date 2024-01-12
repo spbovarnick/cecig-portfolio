@@ -9,10 +9,10 @@ export default function Into({ gif }){
       <div 
         className={`${bricolageGrotesque.className} font-extrabold text-8xl tracking-[-9.6px] mr-4`}
       >
-        I’M INTO
+        I’M <br className="csb:hidden"/> INTO
       </div>
       <div
-        className="into-gif-container ml-4"
+        className="into-gif-container csb:ml-4"
       >
         <ClientImg 
           sizes={"(max-width: 1024px) 100vw, 50vw"}
