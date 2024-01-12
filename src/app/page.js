@@ -35,7 +35,7 @@ export default async function Home() {
     <div className="max-w-screen">
       <LandingPageTop />
       <section id="work" className="relative border-t-2 border-black h-min mb-[183px] scroll-mt-20 md:mt-28 md:scroll-mt-32">
-        <div id="work-title" className="absolute top-0 left-[4rem] md:left-[5.5rem] -translate-y-2/4 text-xl font-extrabold tracking-widest px-4">WORK</div>
+        <div id="work-title" className="absolute top-0 left-[4rem] md:left-[5.5rem] -translate-y-2/4 text-xl font-extrabold tracking-widest px-4 z-10">WORK</div>
         {  workData?.map((caseStudy) => (
           <WorkUI 
             key={caseStudy._id} 
@@ -47,7 +47,7 @@ export default async function Home() {
         ))}
       </section>
       <section id="writing" className="relative border-t-2 border-black h-min">
-        <div id="writing-title" className="absolute top-0 left-[4rem] md:left-[5.5rem] -translate-y-2/4 text-xl font-extrabold tracking-widest px-4">WRITING</div>
+        <div id="writing-title" className="absolute top-0 left-[4rem] md:left-[5.5rem] -translate-y-2/4 text-xl font-extrabold tracking-widest px-4 z-10">WRITING</div>
         {  writingData?.map((writing) => (
           <WritingUI 
             key={writing._id}

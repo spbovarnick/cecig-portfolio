@@ -7,7 +7,6 @@ export default function WorkUI({ slug, project, client, nda }) {
   return (
     <div id="work-cel" className="border-b border-black w-full h-content leading-none relative">
       {/* <div id="slide-cel" className="absolute top-0 w-full h-full"></div> */}
-      <Link id="slide-cel" className="absolute top-0 w-full h-full" href={`/${slug}`}></Link>
       <Link 
         href={`/${slug}`}
         id="link-cel"
@@ -16,6 +15,7 @@ export default function WorkUI({ slug, project, client, nda }) {
         <div className="w-1/2 text-[20px] sm:text-[32px]">{project}</div>
         <div className={`${inter.className} w-1/2 text-right text-[20px] sm:text-[40px]`}>{client}</div>
       </Link>
+      <Link id="slide-cel" className="absolute top-0 w-full h-full" href={`/${slug}`}></Link>
     </div>
   )
 }

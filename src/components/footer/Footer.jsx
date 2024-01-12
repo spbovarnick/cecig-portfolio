@@ -9,7 +9,7 @@ export default function Footer(){
         Let&#39;s Connect! ✌️
       </div>
       <div className="hidden md:flex absolute left-2/4 -translate-x-2/4 gap-x-[21px]">
-        <a className="footer-link" href="mailto:iamcecig@gmail.com">Email Me</a>
+        <a className="footer-link" href="mailto:iamcecig@gmail.com">Contact</a>
         <a className="footer-link" href="https://www.linkedin.com/in/cecigomez/" target="_blank" >LinkedIn</a>
       </div>
       <a className="footer-link hidden md:block absolute right-[38px]" href="https://drive.google.com/file/d/1-biRtZhRiDH_mlYPKBiA0DS3HMQdN82W/view?ts=65909c5c&pli=1" target="_blank">Resume</a>
