@@ -26,10 +26,10 @@ export default async function Info(){
 
   return (
     <section className="grid grid-cols-1 gap-16">
-      <div className="csb:flex csb:justify-center">
+      <div className="csb:flex csb:justify-start">
         <section 
           id="about-section"
-          className="flex flex-col csb:grid csb:grid-cols-2 csb:max-w-[1280px]"
+          className="flex flex-col csb:grid csb:grid-cols-2 csb:justify-start csb:pl-10 csb:max-w-[1280px]"
         >
         
           { info?.about_blurb && 

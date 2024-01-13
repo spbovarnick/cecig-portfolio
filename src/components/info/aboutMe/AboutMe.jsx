@@ -48,7 +48,7 @@ export default function AboutMe({ blurb, headshot }) {
         <div 
           className="w-full h-fit"
         >
-          <div className={`${bricolageGrotesque.className} text-2xl text-black font-bold leading-none mt-8 w-full xl:mt-0`} >ABOUT ME</div>
+          <div className={`${bricolageGrotesque.className} text-2xl text-black font-bold leading-none mt-8 w-full csb:mt-0`} >ABOUT ME</div>
           <PortableText value={blurb} components={blockComponents} />
         </div>
       </div>
