@@ -7,9 +7,9 @@ export default function Into({ gif }){
   return (
     <div className="csb:flex w-full justify-start items-end px-6 csb:px-10">
       <div 
-        className={`${bricolageGrotesque.className} font-extrabold text-8xl tracking-[-9.6px] mr-4`}
+        className={`${bricolageGrotesque.className} font-extrabold text-[64px] sm:text-8xl tracking-[-6.4px] mr-4`}
       >
-        I’M <br className="csb:hidden"/> INTO
+        I’M INTO
       </div>
       <div
         className="into-gif-container csb:ml-4"
