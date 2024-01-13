@@ -55,8 +55,8 @@ export default function Experience({experiences, skills, education}) {
             <div key={index} className="text-xl mt-4">
               <div className="font-extrabold">{mat.degree}</div>
               { mat.currently_enrolled ? 
-                <div>Currently enrolled</div> :
-                <div>{mat.school} {mat.start_year ? `${mat.start_year}-${mat.end_year}` : mat.end_year}</div>
+                <div className="font-semibold">Currently enrolled</div> :
+                <div className="font-semibold">{mat.school} {mat.start_year ? `${mat.start_year}-${mat.end_year}` : mat.end_year}</div>
               }
               { mat.foci && 
                 foci.map((focus, index) => (
