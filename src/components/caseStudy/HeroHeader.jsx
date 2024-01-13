@@ -1,4 +1,3 @@
-import Image from "next/image"
 import { bricolageGrotesque } from "@/app/fonts"
 import ClientImg from "../ClientImg"
 
@@ -17,15 +16,6 @@ export default function HeroHeader({caseStudy}) {
           classes={"w-full h-auto csb:h-full object-contain csb:object-cover"} 
           img={banner_image} 
         />
-        {nda &&
-          <Image
-            src={'/sh_sticker.png'}
-            alt="Hush sticker"
-            width={169}
-            height={169}
-            className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 lg:translate-x-0 lg:translate-y-0 lg:right-10 lg:top-[55px] lg:left-auto"
-          />
-        }
       </div>
       <div className="grid grid-cols-1 gap-y-8 px-6 pt-8 pb-20 lg:grid-cols-2">
         <div >
