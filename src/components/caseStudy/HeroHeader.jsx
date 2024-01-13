@@ -54,7 +54,7 @@ export default function HeroHeader({caseStudy}) {
             ))}
           </ul>
         </div>
-        { team.length > 0 &&
+        { team?.length > 0 &&
           <div>
             <p className={heroHeaderClasses}>TEAM</p>
             <ul className={heroContentClasess}>
