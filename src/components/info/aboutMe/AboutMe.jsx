@@ -33,9 +33,9 @@ export default function AboutMe({ blurb, headshot }) {
   return (
     <>
       {headshot &&
-        <div className="w-full h-full ">
+        <div className="w-full h-full flex items-start">
           <ClientImg 
-            classes={"w-full h-auto csb:h-full csb:w-auto object-contain md:max-[1089px]:object-cover"}
+            classes={"w-full h-auto object-contain"}
             sizes={"(max-width: 1024px) 100vw, 50vw"}
             img={headshot} 
           />
@@ -43,7 +43,7 @@ export default function AboutMe({ blurb, headshot }) {
       }
       <div 
         id="info-blurb"
-        className="px-6 csb:px-16 csb:flex csb:items-center"
+        className="px-6 csb:px-16 csb:flex csb:items-start"
       >
         <div 
           className="w-full h-fit"
