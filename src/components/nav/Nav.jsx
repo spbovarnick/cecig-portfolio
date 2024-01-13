@@ -6,7 +6,7 @@ import './nav.css'
 export default function Nav() {
 
   return (
-    <div id="nav" className="box-border w-full h-[138px] lg:h-[109px] sticky top-0 z-50">
+    <div id="nav" className="box-border w-full h-[100px] lg:h-[109px] sticky top-0 z-50">
       <Link 
         className="hidden md:block absolute left-10 top-[22px]" 
         href='/'
