@@ -25,7 +25,9 @@ const blockComponents = {
   listItem: {
     bullet: ({ children }) => <li className="text-md">{children}</li>
   },
-  normal: ({ children }) => <p className="info-page-text">{children}</p>
+  block: {
+    normal: ({ children }) => <p className="info-page-text text-base">{children}</p>
+  },
 }
 
 export default function AboutMe({ blurb, headshot }) {
