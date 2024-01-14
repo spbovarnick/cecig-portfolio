@@ -6,7 +6,7 @@ export default function Inspo({ inspo }){
   return (
     <section className="px-6 py-16 bg-[#E9E4E0]">
       <div className={`${bricolageGrotesque.className} text-[32px] font-bold w-2/3 mb-6 lg:mb-12`}>WHAT INSPIRED OUR DESIGN</div>
-      <div className="grid grid-cols-1 gap-y-8 gap-x-10 lg:grid-rows-3 lg:grid-cols-none">
+      <div className="grid grid-cols-1 gap-y-8 gap-x-10 lg:grid-rows-3 lg:grid-flow-col lg:grid-cols-2 lg:max-w-[802px]">
         { inspo.map((cel) => (
           <a 
             key={cel._key} 
