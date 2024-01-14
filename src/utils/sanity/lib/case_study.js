@@ -194,7 +194,6 @@ export default {
       name: 'scope',
       title: 'Scope of Work',
       description: "An ordered list that describes the scope of work for this project",
-      validation: Rule => Rule.required(),
       type: 'array',
       of: [
         {
