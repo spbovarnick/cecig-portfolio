@@ -18,7 +18,8 @@ const blockComponents = {
         </a>
       )
     },
-    bold: ({ children }) => <span className={`${bricolageGrotesque.className} font-extrabold md:text-5xl`}>{children}</span>,
+    strong: ({ children }) => <span className={`${bricolageGrotesque.className} font-extrabold md:text-5xl`}>{children}</span>,
+    em: ({ children }) => <p className="text-2xl md:text-4xl font-semibold italic">{children}</p>,
   },
   list: {
     bullet: ({ children }) => <ul className="list-disc list-inside">{children}</ul>,
