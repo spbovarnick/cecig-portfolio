@@ -278,17 +278,39 @@ export default {
               ],
             },
             {
+              name: "bg_color",
+              title: "Background Color",
+              description: "The background color of this full-bleed row",
+              type: "color",
+              hidden: ({ parent }) => !parent?.full_bleed || parent?.full_bleed_text_or_img !== 'text',
+              options: {
+                disableAlpha: true,
+              },
+            },
+            {
+              name: "text_color",
+              title: "Text Color",
+              description: "The color of the text in this full-bleed row",
+              type: "color",
+              hidden: ({ parent }) => !parent?.full_bleed || parent?.full_bleed_text_or_img !== 'text',
+              options: {
+                disableAlpha: true,
+              },
+            },
+            {
               name: "full_bleed_text",
               title: "Full Bleed Text",
               hidden: ({ parent }) => !parent?.full_bleed || parent?.full_bleed_text_or_img !== 'text',
               icon: () => '👐',
               type: "array",
               of: [
+                
                 {
                   type: "block",
                   styles: [
                     { title: 'Full Bleed Huge (48px)', value: 'h1'},
                     { title: 'Full Bleed Medium (32px)', value: 'h2'},
+                    
                   ],
                   marks: {
                     annotations: [

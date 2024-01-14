@@ -52,10 +52,11 @@ export default function CaseStudyBody({body}) {
         row.full_bleed ? (
           <FullBleedRow
             key={row._key} 
-            blockComponents={blockComponents} 
             img={row.full_bleed_row_img} 
             text={row.full_bleed_text} 
             textOrImg={row.full_bleed_text_or_img} 
+            bgColor={row.bg_color}
+            textColor={row.text_color}
           />
         ) : (
           <TwoColRow key={row._key} row={row} blockComponents={blockComponents} />

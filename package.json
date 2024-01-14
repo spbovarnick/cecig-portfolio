@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@portabletext/react": "^3.0.11",
+    "@sanity/color-input": "^3.1.0",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.23.4",
     "@splinetool/react-spline": "^2.2.6",

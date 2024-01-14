@@ -9,6 +9,7 @@ import {deskTool} from 'sanity/desk'
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './src/utils/sanity/env'
 import {schema} from './src/utils/sanity/schema'
+import { colorInput } from '@sanity/color-input'
 
 // Define the actions that should be available for singleton documents
 const singletonActions = new Set(["publish", "discardChanges", "restore"])
@@ -23,6 +24,7 @@ export default defineConfig({
   // Add and edit the content schema in the './sanity/schema' folder
   // schema,
   plugins: [
+    colorInput(),
     deskTool({
       structure: (S) =>
         S.list()

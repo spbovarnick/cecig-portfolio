@@ -81,6 +81,8 @@ export default async function casStudy({ params }){
           metadata
         }
       },
+      bg_color{hex},
+      text_color{hex},
       full_bleed_text[]{
         _type,
         ...,
