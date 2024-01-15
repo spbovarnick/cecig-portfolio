@@ -5,7 +5,7 @@ export default function ImgLeft({ img, text, blockComponents }){
 
   return (
     <>
-      <div className="w-full h-full csb:flex csb:flex-end">
+      <div className="w-full h-full order-last csb:order-none csb:flex csb:flex-end">
         {img && 
           <ClientImg 
           classes={"w-full h-full csb:w-auto object-contain"}
