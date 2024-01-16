@@ -12,11 +12,11 @@ export default function Into({ gif }){
         I’M INTO
       </div>
       <div
-        className="into-gif-container csb:ml-4"
+        className="into-gif-container width-fit csb:ml-4"
       >
         <ClientImg 
-          sizes={"(max-width: 1024px) 100vw, 50vw"}
-          classes={"w-full h-full object-cover"}
+          sizes={"(max-width: 1024px) 480px, 954px"}
+          classes={"w-full h-auto csb:w-[480px] object-cover"}
           img={gif} 
         />
       </div>
