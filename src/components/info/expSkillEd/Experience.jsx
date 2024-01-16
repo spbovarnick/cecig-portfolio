@@ -59,7 +59,7 @@ export default function Experience({experiences, skills, education}) {
                 <div className="font-semibold">{mat.school} {mat.start_year ? `${mat.start_year}-${mat.end_year}` : mat.end_year}</div>
               }
               { mat.foci && 
-                foci.map((focus, index) => (
+                mat.foci.map((focus, index) => (
                   <div key={index}>{focus}</div>
                 ))
               }
