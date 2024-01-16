@@ -29,7 +29,7 @@ export default async function Info(){
       <div className="csb:flex csb:justify-start">
         <section 
           id="about-section"
-          className="flex flex-col csb:grid csb:grid-cols-2 csb:justify-start csb:pl-10 csb:max-w-[1280px]"
+          className="flex flex-col csb:grid csb:grid-cols-2 csb:justify-start csb:px-10"
         >
         
           { info?.about_blurb && 
