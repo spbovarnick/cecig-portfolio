@@ -91,8 +91,9 @@ export default {
                 const { start_date, still_working } = context.parent
                 if (still_working) {
                   return true
+                } else {
+                  return endDate.length > 0 ? true : 'End date is required if you are not still working here'
                 }
-                return endDate > start_date ? true : 'End date must be after start date'
               }),
               hidden: ({ parent, value }) => !value && parent?.still_working,
             }
