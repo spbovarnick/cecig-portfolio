@@ -4,7 +4,8 @@ export default function Experience({experiences, skills, education}) {
   const headerClasses = `${bricolageGrotesque.className} text-2xl text-[#9A9A9A] font-bold leading-none w-full`
 
   return (
-    <div className="grid grid-cols-1 gap-y-16 lg:flex lg:grid-cols-none lg:w-4/5 lg:justify-between">
+    // <div className="grid grid-cols-1 gap-y-16 lg:flex lg:grid-cols-none lg:w-full lg:justify-between">
+    <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-3 lg:gap-x-16 lg:justify-items-center">
       { experiences &&
         <section 
           id="experience"
