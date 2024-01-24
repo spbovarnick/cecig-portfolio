@@ -6,7 +6,6 @@ export default function WorkUI({ slug, project, client, nda }) {
   
   return (
     <div id="work-cel" className="border-b border-black w-full h-content leading-none relative">
-      {/* <div id="slide-cel" className="absolute top-0 w-full h-full"></div> */}
       <Link 
         href={`/${slug}`}
         id="link-cel"

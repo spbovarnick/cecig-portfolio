@@ -71,7 +71,7 @@ export default {
       title: "Client",
       name: "client",
       type: "string",
-      description: "If this project is under NDA, whoever you identify as the 'client' here will be used in place of the actual client name before a sentence explaining that the client name cannot be disclosed, eg: 'IDEO - This one is under NDA so has limited shareable information'",
+      description: "If this project is under NDA, simply use IDEO.",
       validation: (Rule) => Rule.required(),
     },
     {
