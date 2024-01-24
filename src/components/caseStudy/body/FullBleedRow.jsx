@@ -50,7 +50,7 @@ export default function FullBleedRow({ img, text, textOrImg, bgColor, textColor 
       <div className="w-full h-auto flex items-center min-h-fit">
         { img && 
           <ClientImg 
-            sizes={"(max-width: 1024px) 100vw, 50vw"}
+            sizes={"(max-width: 1536px) 100vw, 50vw"}
             classes={"w-full h-auto object-contain"}
             img={img} 
           /> 
