@@ -17,7 +17,7 @@ export default function HeroHeader({caseStudy}) {
           img={banner_image} 
         />
       </div>
-      <div className="grid grid-cols-1 gap-y-8 px-6 pt-8 pb-20 lg:grid-cols-2">
+      <div className="grid grid-cols-1 gap-y-8 px-6 pt-8 pb-20 lg:grid-cols-2 lg:gap-x-8">
         <div >
           <p className={heroHeaderClasses}>PROJECT</p>
           <p className={heroContentClasess} >{project}</p>
