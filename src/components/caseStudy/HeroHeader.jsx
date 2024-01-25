@@ -25,7 +25,7 @@ export default function HeroHeader({caseStudy}) {
         <div>
           <p className={heroHeaderClasses}>CLIENT</p>
           <p className={heroContentClasess}>
-            {nda ? `${client} - This one is under NDA, so has limited shareable information` : client}
+            {nda ? `${client} - This one has limited shareable information` : client}
           </p>
         </div>
         <div>
