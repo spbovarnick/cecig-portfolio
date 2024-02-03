@@ -46,7 +46,7 @@ export default async function LandingPageTop({  }) {
   }
 
   return (
-    <section className="h-fit min-h-screen relative">
+    <section className="h-fit min-h-screen relative mb-10">
       <Spliner />
       <Headline text="CECI GOMEZ" />
       <div className='px-[22px] pt-[4.5rem] md:pt-40 md:px-10 md:w-3/4 relative flex' style={{ pointerEvents: 'none'}}>
