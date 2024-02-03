@@ -29,7 +29,7 @@ const blockComponents = {
     bullet: ({ children }) => <li className="text-md">{children}</li>
   },
   block: {
-    normal: ({ children }) => <p className="text-2xl md:text-4xl font-semibold ">{children}</p>,
+    normal: ({ children }) => <p className="text-[24px] md:text-[40px] font-semibold leading-normal">{children}</p>,
     h3: ({ children }) => <h3 className="font-bold text-[32px] mb-6">{children}</h3>,
   }
 }
