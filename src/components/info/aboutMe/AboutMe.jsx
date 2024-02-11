@@ -1,6 +1,5 @@
 import { PortableText } from "@portabletext/react"
 import { bricolageGrotesque } from "@/app/fonts"
-import './aboutMe.css'
 import ClientImg from "@/components/ClientImg"
 
 const blockComponents = {
@@ -26,7 +25,7 @@ const blockComponents = {
     bullet: ({ children }) => <li className="text-md">{children}</li>
   },
   block: {
-    normal: ({ children }) => <p className="info-page-text text-base">{children}</p>
+    normal: ({ children }) => <p className="mt-4">{children}</p>
   },
 }
 
@@ -45,7 +44,7 @@ export default function AboutMe({ blurb, headshot }) {
       }
       <div 
         id="info-blurb"
-        className="px-6 csb:px-0 csb:pl-[72px] csb:flex csb:max-w-[60%] csb:items-start"
+        className="px-6 csb:px-0 csb:pl-[72px] csb:flex csb:max-w-[60%] csb:items-start mt-4"
       >
         <div 
           className="w-full h-fit"
