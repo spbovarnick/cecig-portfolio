@@ -15,14 +15,14 @@ export default function Experience({experiences, skills, education}) {
             className={headerClasses}
           >RECENT EXPERIENCE</div>
           { experiences.map((gig, index) => (
-            <div key={gig._key} className="text-xl mt-4">
+            <div key={gig._key} className="text-base mt-4">
               <div 
-                className="font-extrabold"
+                className="font-bold"
               >
                 {gig.role} @ {gig.employer} {gig.contract && '(contract)'}
               </div>
               <div
-                className="font-semibold"
+                className="font-normal"
               >
                 {gig.start_date}-{ gig.still_working ? 'present' : gig.end_date}
               </div>
@@ -40,7 +40,7 @@ export default function Experience({experiences, skills, education}) {
               {skills.map((skill, index) => (
                 <div 
                   key={index}
-                  className="text-xl font-semibold"
+                  className="text-base font-normal"
                 >{skill}</div>
               ))}
             </div>
@@ -53,11 +53,11 @@ export default function Experience({experiences, skills, education}) {
         >
           <div className={headerClasses}>EDUCATION</div>
           {education.map((mat, index) => (
-            <div key={index} className="text-xl mt-4">
-              <div className="font-extrabold">{mat.degree}</div>
+            <div key={index} className="text-base mt-4">
+              <div className="font-bold">{mat.degree}</div>
               { mat.currently_enrolled ? 
                 <div className="font-semibold">Currently enrolled</div> :
-                <div className="font-semibold">{mat.school} {mat.start_year ? `${mat.start_year}-${mat.end_year}` : mat.end_year}</div>
+                <div className="font-normal">{mat.school} {mat.start_year ? `${mat.start_year}-${mat.end_year}` : mat.end_year}</div>
               }
               { mat.foci && 
                 mat.foci.map((focus, index) => (
