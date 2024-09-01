@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 let yearNow = new Date().getFullYear()
 import { PasswordInput } from "../components/PasswordInput";
 
@@ -304,13 +305,13 @@ export default {
               icon: () => '👐',
               type: "array",
               of: [
-                
+
                 {
                   type: "block",
                   styles: [
                     { title: 'Full Bleed Huge (48px)', value: 'h1'},
                     { title: 'Full Bleed Medium (32px)', value: 'h2'},
-                    
+
                   ],
                   marks: {
                     annotations: [
@@ -404,7 +405,7 @@ export default {
                 {
                   name: "scope_step",
                   title: "Scope Deliverable",
-                  type: "object", 
+                  type: "object",
                   icon: () => '🪜',
                   fields: [
                     {
@@ -469,29 +470,11 @@ export default {
                     { title: 'Normal', value: 'normal' },
                     { title: "Heading", value: 'h3' },
                   ],
-                  marks: {
-                    annotations: [
-                      {
-                        name: 'deliverableReference',
-                        type: 'object',
-                        title: 'Deliverable reference',
-                        fields: [
-                          {
-                            name: 'deliverable',
-                            type: 'reference',
-                            to: [
-                              { type: 'deliverable' },
-                            ],
-                          },
-                        ],
-                      },
-                    ],
-                  } 
                 },
                 {
                   name: "scope_step",
                   title: "Scope Deliverable",
-                  type: "object", 
+                  type: "object",
                   icon: () => '🪜',
                   fields: [
                     {
